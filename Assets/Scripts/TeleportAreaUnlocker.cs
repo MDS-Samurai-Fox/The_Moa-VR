@@ -5,14 +5,24 @@ using Valve.VR.InteractionSystem;
 
 public class TeleportAreaUnlocker : MonoBehaviour {
 
-	public TeleportArea teleportArea;
+    public TeleportArea teleportArea;
 
-	public void Unlock() {
-		teleportArea.locked = false;
-	}
+    void Start () {
 
-	public void Lock() {
-		teleportArea.locked = true;
-	}
+        teleportArea = GetComponent<TeleportArea> ();
+
+		if (teleportArea == null) {
+			Destroy(this.gameObject);
+		}
+
+    }
+
+    public void Unlock () {
+        teleportArea.locked = false;
+    }
+
+    public void Lock () {
+        teleportArea.locked = true;
+    }
 
 }

@@ -5,7 +5,7 @@ using Valve.VR.InteractionSystem;
 
 public class TeleportPointUnlocker : MonoBehaviour {
 
-	public TeleportArea teleportPoint;
+	public TeleportPoint teleportPoint;
 
 	public void Unlock() {
 		teleportPoint.locked = false;

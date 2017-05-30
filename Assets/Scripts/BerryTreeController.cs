@@ -11,7 +11,7 @@ namespace Valve.VR.InteractionSystem
 {
 	//-------------------------------------------------------------------------
 	[RequireComponent( typeof( Interactable ) )]
-	public class TreeShaker : MonoBehaviour
+	public class BerryTreeController : MonoBehaviour
 	{
 		public GameObject berryPrefab;
 
@@ -28,7 +28,6 @@ namespace Valve.VR.InteractionSystem
 		{
 			
 		}
-
 
 		//-------------------------------------------------
 		// Called when a Hand starts hovering over this object
@@ -64,10 +63,10 @@ namespace Valve.VR.InteractionSystem
 //
 					// Call this to continue receiving HandHoverUpdate messages,
 					// and prevent the hand from hovering over anything else
-					hand.HoverLock( GetComponent<Interactable>() );
+					// hand.HoverLock( GetComponent<Interactable>() );
 
 					// Attach this object to the hand
-					hand.AttachObject( berry, attachmentFlags );
+					// hand.AttachObject( berry, attachmentFlags );
 				}
 //				else
 //				{

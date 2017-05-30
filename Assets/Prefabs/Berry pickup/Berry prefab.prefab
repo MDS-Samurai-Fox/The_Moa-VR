@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114083199324502726}
   - component: {fileID: 114660072719490232}
   m_Layer: 0
-  m_Name: Berry
+  m_Name: Berry prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
