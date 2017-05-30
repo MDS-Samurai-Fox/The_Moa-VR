@@ -13,6 +13,8 @@ namespace Valve.VR.InteractionSystem
 	[RequireComponent( typeof( Interactable ) )]
 	public class TreeShaker : MonoBehaviour
 	{
+		public GameObject berryPrefab;
+
 		private TextMesh textMesh;
 		private Vector3 oldPosition;
 		private Quaternion oldRotation;
@@ -24,7 +26,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		void Awake()
 		{
-			textMesh = GetComponentInChildren<TextMesh>();
+			
 		}
 
 
@@ -33,7 +35,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void OnHandHoverBegin( Hand hand )
 		{
-			ControllerButtonHints.ShowTextHint( hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger, "Shake me");
+			ControllerButtonHints.ShowTextHint( hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger, "Pick berries");
 		}
 
 
@@ -42,7 +44,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void OnHandHoverEnd( Hand hand )
 		{
-			ControllerButtonHints.HideTextHint( hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger );
+			ControllerButtonHints.HideTextHint( hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);
 		}
 
 
@@ -55,29 +57,30 @@ namespace Valve.VR.InteractionSystem
 			{
 				if ( hand.currentAttachedObject != gameObject )
 				{
-					// Save our position/rotation so that we can restore it when we detach
-					oldPosition = transform.position;
-					oldRotation = transform.rotation;
-
+					GameObject berry = Instantiate (berryPrefab, hand.gameObject.transform.position, Quaternion.identity);
+//					// Save our position/rotation so that we can restore it when we detach
+//					oldPosition = transform.position;
+//					oldRotation = transform.rotation;
+//
 					// Call this to continue receiving HandHoverUpdate messages,
 					// and prevent the hand from hovering over anything else
 					hand.HoverLock( GetComponent<Interactable>() );
 
 					// Attach this object to the hand
-					hand.AttachObject( gameObject, attachmentFlags );
+					hand.AttachObject( berry, attachmentFlags );
 				}
-				else
-				{
-					// Detach this object from the hand
-					hand.DetachObject( gameObject );
-
-					// Call this to undo HoverLock
-					hand.HoverUnlock( GetComponent<Interactable>() );
-
-					// Restore position/rotation
-					transform.position = oldPosition;
-					transform.rotation = oldRotation;
-				}
+//				else
+//				{
+//					// Detach this object from the hand
+//					hand.DetachObject( gameObject );
+//
+//					// Call this to undo HoverLock
+//					hand.HoverUnlock( GetComponent<Interactable>() );
+//
+//					// Restore position/rotation
+//					transform.position = oldPosition;
+//					transform.rotation = oldRotation;
+//				}
 			}
 		}
 
@@ -87,7 +90,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void OnAttachedToHand( Hand hand )
 		{
-			attachTime = Time.time;
+//			attachTime = Time.time;
 		}
 
 
