@@ -12,7 +12,11 @@ namespace SamuraiFox.Moa {
     //-------------------------------------------------------------------------
     [RequireComponent (typeof (Interactable))]
     public class BerryTreeController : MonoBehaviour {
+
         public GameObject berryPrefab;
+
+        [EnumFlags]
+        public Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags;
 
         public UnityEvent OnBerryPickUpEvent;
 
@@ -20,10 +24,6 @@ namespace SamuraiFox.Moa {
         private Quaternion oldRotation;
 
         private float attachTime;
-
-		[EnumFlags]
-		public Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags;
-        // private Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags & (~Hand.AttachmentFlags.SnapOnAttach) & (~Hand.AttachmentFlags.DetachOthers);
 
         //-------------------------------------------------
         void Awake () {
@@ -35,16 +35,14 @@ namespace SamuraiFox.Moa {
         //-------------------------------------------------
         private void OnHandHoverBegin (Hand hand) {
 
-            Debug.Log (hand.currentAttachedObject);
             GameObject hand1 = GameObject.Find ("BlankController_Hand1");
             GameObject hand2 = GameObject.Find ("BlankController_Hand2");
-            bool b = hand.currentAttachedObject == hand1 || hand.currentAttachedObject == hand2;
-            Debug.Log (b);
+            bool noObjectsInHand = hand.currentAttachedObject == hand1 || hand.currentAttachedObject == hand2;
 
-            if (b) {
+            if (noObjectsInHand) {
                 ControllerButtonHints.ShowTextHint (hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger, "Shake me", true);
             }
-			
+
         }
 
         //-------------------------------------------------
@@ -66,8 +64,8 @@ namespace SamuraiFox.Moa {
                     ControllerButtonHints.HideTextHint (hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);
 
                     OnBerryPickUpEvent.Invoke ();
-                    
-					GameObject berry = Instantiate (berryPrefab, hand.gameObject.transform.position, Quaternion.identity);
+
+                    GameObject berry = Instantiate (berryPrefab, hand.gameObject.transform.position, Quaternion.identity);
 
                     // Call this to continue receiving HandHoverUpdate messages,
                     // and prevent the hand from hovering over anything else

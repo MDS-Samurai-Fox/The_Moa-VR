@@ -13,7 +13,6 @@ namespace SamuraiFox.Moa {
         // Called when this GameObject becomes attached to the hand
         //-------------------------------------------------
         private void OnAttachedToHand (Hand hand) {
-            Debug.Log ("OnAttachedToHand " + name);
 
             GameObject cbh = hand.GetComponentInChildren<ControllerButtonHints> ().gameObject;
 
@@ -31,13 +30,14 @@ namespace SamuraiFox.Moa {
         //-------------------------------------------------
         private void OnDetachedFromHand (Hand hand) {
             Debug.Log ("OnDetachedFromHand " + name);
+            ControllerButtonHints.HideTextHint (hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
         }
 
         //-------------------------------------------------
         // Called every Update() while this GameObject is attached to the hand
         //-------------------------------------------------
         private void HandAttachedUpdate (Hand hand) {
-            ControllerButtonHints.ShowTextHint (hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad, "Teleport to next area", true);
+            ControllerButtonHints.ShowTextHint (hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad, "Deliver to next area", true);
         }
 
         //-------------------------------------------------
