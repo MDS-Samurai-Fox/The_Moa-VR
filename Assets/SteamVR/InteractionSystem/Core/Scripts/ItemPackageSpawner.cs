@@ -211,16 +211,27 @@ namespace Valve.VR.InteractionSystem {
 
         //-------------------------------------------------
         private void RemoveMatchingItemsFromHandStack (ItemPackage package, Hand hand) {
+
             for (int i = 0; i < hand.AttachedObjects.Count; i++) {
+
                 ItemPackageReference packageReference = hand.AttachedObjects[i].attachedObject.GetComponent<ItemPackageReference> ();
+
                 if (packageReference != null) {
+
                     ItemPackage attachedObjectItemPackage = packageReference.itemPackage;
+
                     if ((attachedObjectItemPackage != null) && (attachedObjectItemPackage == package)) {
+
                         GameObject detachedItem = hand.AttachedObjects[i].attachedObject;
+
                         hand.DetachObject (detachedItem);
+
                     }
+
                 }
+
             }
+
         }
 
         //-------------------------------------------------

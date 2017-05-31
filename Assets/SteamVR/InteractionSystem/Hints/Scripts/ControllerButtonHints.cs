@@ -578,7 +578,7 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		private void Clear()
+		public void Clear()
 		{
 			renderers.Clear();
 			flashingRenderers.Clear();
