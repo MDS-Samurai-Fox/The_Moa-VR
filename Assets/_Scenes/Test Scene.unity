@@ -414,18 +414,13 @@ Transform:
   m_PrefabParentObject: {fileID: 4565770481859506, guid: f00e04cd19621714bb0f691b9005c37b,
     type: 2}
   m_PrefabInternal: {fileID: 933893064}
---- !u!1001 &918296741
+--- !u!1001 &922473465
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
-        type: 2}
-      propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4868376255308796, guid: b2bf5d901b9c0a84480a87cf50842d05, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -460,14 +455,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
         type: 2}
+      propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
+        type: 2}
       propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 3121550}
-    - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
-        type: 2}
-      propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Unlock
-      objectReference: {fileID: 0}
     - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
         type: 2}
       propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -475,52 +470,14 @@ Prefab:
       objectReference: {fileID: 1334046981}
     - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
         type: 2}
-      propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Unlock
-      objectReference: {fileID: 0}
-    - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
-        type: 2}
       propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 688893750}
     - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
         type: 2}
-      propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: ShowOutline
-      objectReference: {fileID: 0}
-    - target: {fileID: 4295792880549536, guid: b2bf5d901b9c0a84480a87cf50842d05, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1.129
-      objectReference: {fileID: 0}
-    - target: {fileID: 4295792880549536, guid: b2bf5d901b9c0a84480a87cf50842d05, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -1.037
-      objectReference: {fileID: 0}
-    - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
-        type: 2}
-      propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
-        type: 2}
-      propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
-        type: 2}
       propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 732031517}
-    - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
-        type: 2}
-      propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: FadeIn
-      objectReference: {fileID: 0}
-    - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
-        type: 2}
-      propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.CanvasGroup, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 114112559571713084, guid: b2bf5d901b9c0a84480a87cf50842d05,
         type: 2}
       propertyPath: OnBerryPickUpEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgument
