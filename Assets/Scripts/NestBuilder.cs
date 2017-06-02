@@ -35,11 +35,13 @@ namespace Valve.VR.InteractionSystem
             if (prefabNumber == 0)
             {
                 GameObject moa = Instantiate(nests[prefabNumber]);
+                
             }
             else
             {
-                Destroy(nests[prefabNumber - 1]);
+                //Destroy(nests[prefabNumber - 1]);
                 GameObject moa = Instantiate(nests[prefabNumber]);
+                nests[prefabNumber - 1].SetActive(false);
             }
 
             if (prefabNumber < nests.Length)
