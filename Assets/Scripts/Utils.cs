@@ -7,7 +7,7 @@ public class Utils : MonoBehaviour {
 
     public static Utils Instance { get; private set; }
 
-	private float fadeDuration = 1;
+    private float fadeDuration = 1;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -36,10 +36,22 @@ public class Utils : MonoBehaviour {
 
     }
 
-	public void SetFadeDuration(float fadeDuration) {
+    public void FadeTransformIn (Transform t) {
 
-		this.fadeDuration = fadeDuration;
+        t.DOScale (1, fadeDuration);
 
-	}
+    }
+
+    public void FadeTransformOut (Transform t) {
+
+        t.DOScale (0, fadeDuration);
+
+    }
+
+    public void SetFadeDuration (float fadeDuration) {
+
+        this.fadeDuration = fadeDuration;
+
+    }
 
 }
