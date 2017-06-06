@@ -850,6 +850,8 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void TeleportPlayer()
 		{
+			Debug.Log("TeleportPlayer");
+
 			teleporting = false;
 
 			Teleport.PlayerPre.Send( pointedAtTeleportMarker );
@@ -895,7 +897,9 @@ namespace Valve.VR.InteractionSystem
 				teleportingToMarker.TeleportPlayer( pointedAtPosition );
 			}
 
+			pointedAtTeleportMarker.OnTeleport.Invoke();
 			Teleport.Player.Send( pointedAtTeleportMarker );
+
 		}
 
 

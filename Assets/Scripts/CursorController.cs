@@ -14,22 +14,10 @@ public class CursorController : MonoBehaviour {
 	private Vector3 floatPosition = Vector3.zero;
 	private Vector3 floatForward = Vector3.zero;
     private bool canFloat = false;
+    public float forwardZ = 0;
 
     void Start () {
         transform.DOScale (0, 0);
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update () {
-
-        if (canFloat) {
-
-            transform.position = floatPosition + floatForward * Mathf.PingPong (Time.time, 1);
-
-        }
-
     }
 
     public void LookAt (Transform t) {
@@ -42,9 +30,14 @@ public class CursorController : MonoBehaviour {
 
     private void Float () {
 
-		floatForward = transform.forward;
-		floatPosition = transform.position;
-		canFloat = true;
+        transform.DOLocalMoveZ(1.5f, 1f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+        transform.DOLocalMoveX(1, 1f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+
+    }
+
+    public void Hide() {
+
+        transform.DOScale(0, 1);
 
     }
 
