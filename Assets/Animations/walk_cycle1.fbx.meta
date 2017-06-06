@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 9e65ca65886b8e14896752690e89a20b
+timeCreated: 1490736172
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bottom_beak
+    100002: head
+    100004: joint14
+    100006: joint14 1
+    100008: joint15
+    100010: joint15 1
+    100012: L_eye
+    100014: L_leg_
+    100016: L_leg_1
+    100018: L_leg_2
+    100020: L_leg_3
+    100022: neck_1
+    100024: neck_2
+    100026: neck_3
+    100028: neck_4
+    100030: neck_5
+    100032: neck_6
+    100034: polySurface5
+    100036: R_eye
+    100038: R_leg_
+    100040: R_leg_1
+    100042: R_leg_2
+    100044: R_leg_3
+    100046: root
+    100048: shoulder
+    100050: tail
+    100052: //RootNode
+    400000: bottom_beak
+    400002: head
+    400004: joint14
+    400006: joint14 1
+    400008: joint15
+    400010: joint15 1
+    400012: L_eye
+    400014: L_leg_
+    400016: L_leg_1
+    400018: L_leg_2
+    400020: L_leg_3
+    400022: neck_1
+    400024: neck_2
+    400026: neck_3
+    400028: neck_4
+    400030: neck_5
+    400032: neck_6
+    400034: polySurface5
+    400036: R_eye
+    400038: R_leg_
+    400040: R_leg_1
+    400042: R_leg_2
+    400044: R_leg_3
+    400046: root
+    400048: shoulder
+    400050: tail
+    400052: //RootNode
+    4300000: polySurface5
+    7400000: Walk
+    7400002: Walk
+    7400004: Walk
+    7400006: Walk
+    7400008: Walk
+    9500000: //RootNode
+    13700000: polySurface5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: polySurface5
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/L_leg_
+        weight: 1
+      - path: root/L_leg_/L_leg_1
+        weight: 1
+      - path: root/L_leg_/L_leg_1/L_leg_2
+        weight: 1
+      - path: root/L_leg_/L_leg_1/L_leg_2/L_leg_3
+        weight: 1
+      - path: root/L_leg_/L_leg_1/L_leg_2/L_leg_3/joint14
+        weight: 1
+      - path: root/L_leg_/L_leg_1/L_leg_2/L_leg_3/joint14/joint15
+        weight: 1
+      - path: root/R_leg_
+        weight: 1
+      - path: root/R_leg_/R_leg_1
+        weight: 1
+      - path: root/R_leg_/R_leg_1/R_leg_2
+        weight: 1
+      - path: root/R_leg_/R_leg_1/R_leg_2/R_leg_3
+        weight: 1
+      - path: root/R_leg_/R_leg_1/R_leg_2/R_leg_3/joint14 1
+        weight: 1
+      - path: root/R_leg_/R_leg_1/R_leg_2/R_leg_3/joint14 1/joint15 1
+        weight: 1
+      - path: root/shoulder
+        weight: 1
+      - path: root/shoulder/neck_1
+        weight: 1
+      - path: root/shoulder/neck_1/neck_2
+        weight: 1
+      - path: root/shoulder/neck_1/neck_2/neck_3
+        weight: 1
+      - path: root/shoulder/neck_1/neck_2/neck_3/neck_4
+        weight: 1
+      - path: root/shoulder/neck_1/neck_2/neck_3/neck_4/neck_5
+        weight: 1
+      - path: root/shoulder/neck_1/neck_2/neck_3/neck_4/neck_5/neck_6
+        weight: 1
+      - path: root/shoulder/neck_1/neck_2/neck_3/neck_4/neck_5/neck_6/head
+        weight: 1
+      - path: root/shoulder/neck_1/neck_2/neck_3/neck_4/neck_5/neck_6/head/bottom_beak
+        weight: 1
+      - path: root/shoulder/neck_1/neck_2/neck_3/neck_4/neck_5/neck_6/head/L_eye
+        weight: 1
+      - path: root/shoulder/neck_1/neck_2/neck_3/neck_4/neck_5/neck_6/head/R_eye
+        weight: 1
+      - path: root/tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
