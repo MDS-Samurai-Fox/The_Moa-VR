@@ -5,8 +5,6 @@ using Valve.VR.InteractionSystem;
 
 public class NestBranch : MonoBehaviour {
 
-    public Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags;
-
     //-------------------------------------------------
     // Called when a Hand starts hovering over this object
     //-------------------------------------------------
