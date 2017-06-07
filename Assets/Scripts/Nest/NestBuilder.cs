@@ -19,6 +19,8 @@ namespace SamuraiFox.Moa {
 
         [SerializeField]
         private List<Vector3> nestPartScaleList = new List<Vector3> ();
+        [SerializeField]
+        private List<Transform> nestBranchList = new List<Transform> ();
 
         private int maxNestChildrenCount = 0;
         private int nestIndex = 0;
@@ -27,6 +29,16 @@ namespace SamuraiFox.Moa {
 
         // Use this for initialization
         void Start () {
+
+            ClearVectors ();
+
+            NestBranch[] nestBranches = FindObjectsOfType<NestBranch>();
+
+            for (int i = 0; i < nestBranches.Length; i++) {
+
+                nestBranchList.Add(nestBranches[i].gameObject.transform);
+
+            }
 
             for (int i = 0; i < 3; i++) {
 
@@ -43,6 +55,8 @@ namespace SamuraiFox.Moa {
 
             maxNestChildrenCount = nestPartList.Count;
 
+            transform.DOScale(Vector3.zero, 0);
+
             HideNest ();
 
             foreach (Transform t in nestPartOutlineList) {
@@ -56,11 +70,42 @@ namespace SamuraiFox.Moa {
         private void OnHandHoverBegin (Hand hand) {
 
             // Build up one part of the nest
-            if (hand.currentAttachedObject.GetComponent<NestPart> ()) {
+            if (hand.currentAttachedObject.GetComponent<NestBranch> ()) {
 
                 BuildNest ();
+                TakeBackItem (hand);
 
             }
+
+        }
+
+        void OnCollisionEnter (Collision other) {
+
+            Debug.Log ("On Collision Enter");
+            BuildNest ();
+            Destroy (other.gameObject);
+
+        }
+
+        private void TakeBackItem (Hand hand) {
+
+            for (int i = 0; i < hand.AttachedObjects.Count; i++) {
+
+                GameObject detachedItem = hand.AttachedObjects[i].attachedObject;
+
+                hand.DetachObject (detachedItem);
+
+            }
+
+            hand.DetachObject (hand.currentAttachedObject);
+
+            ControllerButtonHints.HideTextHint (hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
+
+        }
+
+        public void Show() {
+
+            transform.DOScale(Vector3.one, 1);
 
         }
 
@@ -120,6 +165,15 @@ namespace SamuraiFox.Moa {
                 }
 
             }
+
+        }
+
+        public void ClearVectors () {
+
+            nestPartList.Clear ();
+            nestPartOutlineList.Clear ();
+            nestPartScaleList.Clear ();
+            nestBranchList.Clear();
 
         }
 
