@@ -59,7 +59,9 @@ namespace SamuraiFox.Moa {
 
             if (hand.GetStandardInteractionButtonDown () || ((hand.controller != null) && hand.controller.GetPressDown (Valve.VR.EVRButtonId.k_EButton_Grip))) {
 
-                if (hand.currentAttachedObject != gameObject) {
+                if (hand.currentAttachedObject.GetComponent<BerryInteractable>() == null) {
+
+                    Debug.Log("Instantiating berry");
 
                     ControllerButtonHints.HideTextHint (hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);
 
@@ -74,6 +76,12 @@ namespace SamuraiFox.Moa {
                     // Attach this object to the hand
                     hand.AttachObject (berry, attachmentFlags);
                 }
+                else {
+
+                    Debug.Log("Already picking up berry");
+
+                }
+
             }
         }
 

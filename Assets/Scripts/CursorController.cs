@@ -23,21 +23,21 @@ public class CursorController : MonoBehaviour {
     public void LookAt (Transform t) {
 
         transform.DOMoveY (transform.position.y + verticalSpawnOffset, lookAtDuration).SetEase (lookAtEase).From ();
-
         transform.DOLookAt (t.position, lookAtDuration).SetDelay (delay).SetEase (Ease.OutCubic).OnComplete (Float);
 
     }
 
     private void Float () {
 
-        transform.DOLocalMoveZ(1.5f, 1f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
-        transform.DOLocalMoveX(1, 1f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+        transform.DOMoveY(transform.position.y + 0.25f, 0.5f).SetEase(Ease.OutQuad).SetLoops(-1, LoopType.Yoyo);
+        // transform.DOLocalMoveZ(1.5f, 1f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+        // transform.DOLocalMoveX(1, 1f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
 
     }
 
     public void Hide() {
 
-        transform.DOScale(0, 1);
+        transform.DOScale(0, 0.25f);
 
     }
 
