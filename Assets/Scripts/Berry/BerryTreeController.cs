@@ -40,7 +40,7 @@ namespace SamuraiFox.Moa {
             bool noObjectsInHand = hand.currentAttachedObject == hand1 || hand.currentAttachedObject == hand2;
 
             if (noObjectsInHand) {
-                ControllerButtonHints.ShowTextHint (hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger, "Press me", true);
+                ControllerButtonHints.ShowTextHint (hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger, "Shake me", true);
             }
 
         }
@@ -58,8 +58,6 @@ namespace SamuraiFox.Moa {
         private void HandHoverUpdate (Hand hand) {
 
             if (hand.GetStandardInteractionButtonDown () || ((hand.controller != null) && hand.controller.GetPressDown (Valve.VR.EVRButtonId.k_EButton_Grip))) {
-
-                Debug.Log(hand.currentAttachedObject);
 
                 if (hand.currentAttachedObject.GetComponent<BerryInteractable>() == null) {
 
