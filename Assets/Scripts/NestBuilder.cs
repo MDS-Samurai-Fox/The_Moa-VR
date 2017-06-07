@@ -15,6 +15,8 @@ namespace Valve.VR.InteractionSystem
 
         private int prefabNumber = 0;
 
+        public bool testing = true;
+
         // Use this for initialization
         void Start()
         {
@@ -24,6 +26,15 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         void Update()
         {
+            if (!testing)
+                return;
+
+            //testing
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+
+                BuildNest();
+            }
 
         }
 
@@ -34,14 +45,13 @@ namespace Valve.VR.InteractionSystem
 
             if (prefabNumber == 0)
             {
-                GameObject moa = Instantiate(nests[prefabNumber]);
-                
+                GameObject moa = Instantiate(nests[prefabNumber]);   
             }
             else
             {
                 //Destroy(nests[prefabNumber - 1]);
                 GameObject moa = Instantiate(nests[prefabNumber]);
-                nests[prefabNumber - 1].SetActive(false);
+                //nests[prefabNumber - 1].SetActive(false);
             }
 
             if (prefabNumber < nests.Length)
