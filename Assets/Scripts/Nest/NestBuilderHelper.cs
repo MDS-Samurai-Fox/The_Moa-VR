@@ -29,12 +29,6 @@ namespace SamuraiFox.Moa {
 
 			}
 
-			if (GUILayout.Button("Clear Lists")) {
-				
-				nest.ClearVectors();
-
-			}
-
 		}
         
     }

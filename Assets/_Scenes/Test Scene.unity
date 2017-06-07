@@ -3092,20 +3092,50 @@ MonoBehaviour:
   - {fileID: 954452480}
   - {fileID: 100124740}
   - {fileID: 1353813186}
+  - {fileID: 100124740}
+  - {fileID: 954452480}
+  - {fileID: 1353813186}
   nestPartOutlineList:
   - {fileID: 1585909065}
   - {fileID: 835567109}
   - {fileID: 1126352484}
+<<<<<<< HEAD
+  - {fileID: 1585909065}
+  - {fileID: 835567109}
+  - {fileID: 1126352484}
+  - {fileID: 1585909065}
+  - {fileID: 835567109}
+  - {fileID: 1126352484}
+  - {fileID: 1585909065}
+  - {fileID: 835567109}
+  - {fileID: 1126352484}
+  - {fileID: 1585909065}
+  - {fileID: 835567109}
+  - {fileID: 1126352484}
+  - {fileID: 1585909065}
+  - {fileID: 835567109}
+  - {fileID: 1126352484}
+  - {fileID: 1585909065}
+  - {fileID: 835567109}
+  - {fileID: 1126352484}
+=======
+>>>>>>> 6c25f414077b5d221c4d742cbda46c6131ffa18d
   nestPartScaleList:
   - {x: 1, y: 1, z: 1}
   - {x: 1.5, y: 1.5, z: 1.5}
   - {x: 2, y: 2, z: 2}
+<<<<<<< HEAD
+  - {x: 1.5, y: 1.5, z: 1.5}
+  - {x: 1, y: 1, z: 1}
+  - {x: 2, y: 2, z: 2}
+=======
   nestBranchList:
   - {fileID: 641307466}
   - {fileID: 946674236}
   - {fileID: 1300447998}
   - {fileID: 1550985514}
   - {fileID: 1932095010}
+>>>>>>> 6c25f414077b5d221c4d742cbda46c6131ffa18d
 --- !u!135 &1548976223
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3181,7 +3211,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fbe225caf3152b142a0c4de961499405, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
