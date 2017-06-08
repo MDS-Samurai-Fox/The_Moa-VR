@@ -25,8 +25,6 @@ namespace SamuraiFox.Moa {
         private int maxNestChildrenCount = 0;
         private int nestIndex = 0;
 
-        private int prefabNumber = 0;
-
         // Use this for initialization
         void Start () {
 

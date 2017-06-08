@@ -10,12 +10,6 @@ public class CursorController : MonoBehaviour {
     public float lookAtDuration = 1;
     public float delay = 1;
 
-	// Float
-	private Vector3 floatPosition = Vector3.zero;
-	private Vector3 floatForward = Vector3.zero;
-    private bool canFloat = false;
-    public float forwardZ = 0;
-
     void Start () {
         transform.DOScale (0, 0);
     }
@@ -30,8 +24,6 @@ public class CursorController : MonoBehaviour {
     private void Float () {
 
         transform.DOMoveY(transform.position.y + 0.25f, 0.5f).SetEase(Ease.OutQuad).SetLoops(-1, LoopType.Yoyo);
-        // transform.DOLocalMoveZ(1.5f, 1f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
-        // transform.DOLocalMoveX(1, 1f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
 
     }
 
