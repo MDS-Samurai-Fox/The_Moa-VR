@@ -32,6 +32,14 @@ public class AudioManager : MonoBehaviour {
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            
+            if (s.name == "Footstep") {
+                s.source.spatialBlend = 0.4f;
+            }
+            
+            if (s.name == "Screech") {
+                s.source.spatialBlend = 0.15f;
+            }
 
         }
 
@@ -81,10 +89,14 @@ public class AudioManager : MonoBehaviour {
 
         foreach(Sound s in sounds) {
 
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
+            if (s.source != null) {
+
+                s.source.clip = s.clip;
+                s.source.volume = s.volume;
+                s.source.pitch = s.pitch;
+                s.source.loop = s.loop;
+
+            }
 
         }
 

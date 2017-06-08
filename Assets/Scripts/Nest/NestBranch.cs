@@ -6,6 +6,8 @@ using Valve.VR.InteractionSystem;
 public class NestBranch : MonoBehaviour {
 
     private bool canPlayHitSound = true;
+    
+    private bool firstCollision = true;
 
     //-------------------------------------------------
     // Called when a Hand starts hovering over this object
@@ -50,11 +52,41 @@ public class NestBranch : MonoBehaviour {
     /// </summary>
     /// <param name="other">The Collision data associated with this collision.</param>
     void OnCollisionEnter(Collision other) {
+        
+        if (firstCollision) {
+            firstCollision = false;
+            return;
+        }
+
+        Debug.Log("Collision Enter");
 
         if (canPlayHitSound) {
             canPlayHitSound = false;
-            AudioManager.Instance.Play("Stick hit");
+            AudioManager.Instance.Play("Stick");
         }
+
+    }
+
+    /// <summary>
+    /// OnCollisionStay is called once per frame for every collider/rigidbody
+    /// that is touching rigidbody/collider.
+    /// </summary>
+    /// <param name="other">The Collision data associated with this collision.</param>
+    void OnCollisionStay(Collision other) {
+
+        Debug.Log("Collision Stay");
+
+    }
+
+    /// <summary>
+    /// OnCollisionExit is called when this collider/rigidbody has
+    /// stopped touching another rigidbody/collider.
+    /// </summary>
+    /// <param name="other">The Collision data associated with this collision.</param>
+    void OnCollisionExit(Collision other) {
+
+        Debug.Log("Collision Exit");
+        canPlayHitSound = true;
 
     }
 
