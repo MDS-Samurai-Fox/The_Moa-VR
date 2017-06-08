@@ -9,53 +9,64 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1727041136797566}
+  m_RootGameObject: {fileID: 1800093252694076}
   m_IsPrefabParent: 1
---- !u!1 &1727041136797566
+--- !u!1 &1800093252694076
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4198053963366142}
-  - component: {fileID: 114712737201544580}
+  - component: {fileID: 4267357272079754}
+  - component: {fileID: 114890760707281532}
   m_Layer: 0
-  m_Name: Teleport object
+  m_Name: Audio Manager
   m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4198053963366142
+--- !u!4 &4267357272079754
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1727041136797566}
+  m_GameObject: {fileID: 1800093252694076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.089, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114712737201544580
+--- !u!114 &114890760707281532
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1727041136797566}
+  m_GameObject: {fileID: 1800093252694076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3541f657b6ad80d49bf6c36a12cf45cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 57bd859e0ce01784d9ffb7f1867a4698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToTeleport: {fileID: 0}
-  initialDelay: 2
-  InitialEaseType: 3
-  initialDuration: 1
-  finalDelay: 0
-  finalEaseType: 0
-  finalDuration: 1
-  shouldAttachRigidbody: 0
+  sounds:
+  - name: Background
+    clip: {fileID: 8300000, guid: 8b3ec24ca7f3d7a48914155acbf4b990, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Footstep
+    clip: {fileID: 8300000, guid: 1c2a78ae8103eee43ac6a66fe721861e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Stick
+    clip: {fileID: 8300000, guid: c429f2331f3361c468f3ff58937fdec4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

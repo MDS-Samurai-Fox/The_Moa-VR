@@ -15,6 +15,8 @@ public class CursorController : MonoBehaviour {
     }
 
     public void LookAt (Transform t) {
+        
+        Utils.Instance.FadeTransformIn(this.transform);
 
         transform.DOMoveY (transform.position.y + verticalSpawnOffset, lookAtDuration).SetEase (lookAtEase).From ();
         transform.DOLookAt (t.position, lookAtDuration).SetDelay (delay).SetEase (Ease.OutCubic).OnComplete (Float);
