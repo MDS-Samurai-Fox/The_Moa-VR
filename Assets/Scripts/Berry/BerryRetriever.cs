@@ -49,8 +49,9 @@ namespace SamuraiFox.Moa {
         }
 
         private void TakeBackItem (Hand hand) {
-
-			GameObject berry = Instantiate(berryPrefab, berryOutline.position, Quaternion.identity);
+            
+            // Create a berry
+			Instantiate(berryPrefab, berryOutline.position, Quaternion.identity);
 
 			HideOutline();
 
