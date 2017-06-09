@@ -13,8 +13,6 @@ public class TorchController : MonoBehaviour {
 
         FireSource[] torchArray = GetComponentsInChildren<FireSource> ();
 
-        Debug.Log (torchArray.Length);
-
         for (int i = 0; i < torchArray.Length; i++) {
 
             torchList.Add (torchArray[i]);
