@@ -36,14 +36,14 @@ public class NestBranch : MonoBehaviour {
     //-------------------------------------------------
     private void OnDetachedFromHand(Hand hand) {
         Debug.Log("OnDetachedFromHand " + name);
-        ControllerButtonHints.HideTextHint(hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
+        // ControllerButtonHints.HideTextHint(hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
     }
 
     //-------------------------------------------------
     // Called every Update() while this GameObject is attached to the hand
     //-------------------------------------------------
     private void HandAttachedUpdate(Hand hand) {
-        ControllerButtonHints.ShowTextHint(hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger, "Throw inside the glowing nest", true);
+        // ControllerButtonHints.ShowTextHint(hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger, "Throw inside the glowing nest", true);
     }
 
     /// <summary>
@@ -64,17 +64,6 @@ public class NestBranch : MonoBehaviour {
             canPlayHitSound = false;
             AudioManager.Instance.Play("Stick");
         }
-
-    }
-
-    /// <summary>
-    /// OnCollisionStay is called once per frame for every collider/rigidbody
-    /// that is touching rigidbody/collider.
-    /// </summary>
-    /// <param name="other">The Collision data associated with this collision.</param>
-    void OnCollisionStay(Collision other) {
-
-        Debug.Log("Collision Stay");
 
     }
 

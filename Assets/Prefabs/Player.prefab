@@ -164,7 +164,8 @@ GameObject:
   - component: {fileID: 114934933510070214}
   - component: {fileID: 92737592505122182}
   - component: {fileID: 124461605106353850}
-  - component: {fileID: 114802260548380588}
+  - component: {fileID: 114034290121948526}
+  - component: {fileID: 114700343484667724}
   m_Layer: 0
   m_Name: VRCamera
   m_TagString: MainCamera
@@ -838,8 +839,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 1
+  m_HDR: 1
+  m_AllowMSAA: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1043,6 +1044,18 @@ MonoBehaviour:
   menuOffset: 40
   scaleLimits: {x: 0.1, y: 5}
   scaleRate: 0.5
+--- !u!114 &114034290121948526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328651707509282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: f9f70530694f10b4a901043dcd2a15db, type: 2}
 --- !u!114 &114077918296506758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1244,7 +1257,7 @@ MonoBehaviour:
   - {x: -0.93000025, y: 0.01, z: -0.93000025}
   - {x: -0.93000025, y: 0.01, z: 0.93000025}
   - {x: 0.93000025, y: 0.01, z: 0.93000025}
---- !u!114 &114802260548380588
+--- !u!114 &114700343484667724
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

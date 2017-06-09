@@ -23,7 +23,6 @@ public class MoaFootstepController : MonoBehaviour {
         if (canPlayFootstep) {
             canPlayFootstep = false;
             AudioManager.Instance.Play("Footstep");
-            Debug.Log("Collided with " + other.name);
         }
 
     }

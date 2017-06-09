@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
+using UnityEngine.Events;
 
 namespace SamuraiFox.Moa {
 
@@ -10,6 +11,8 @@ namespace SamuraiFox.Moa {
     //-------------------------------------------------------------------------
     [RequireComponent (typeof (Interactable))]
     public class NestBuilder : MonoBehaviour {
+
+        public UnityEvent OnNestBuild;
 
         [SerializeField]
         private List<Transform> nestPartList = new List<Transform> ();
@@ -103,7 +106,7 @@ namespace SamuraiFox.Moa {
 
         public void Show() {
 
-            transform.DOScale(Vector3.one, 1);
+            transform.DOScale(new Vector3(1.5f, 1.2f, 1.5f), 1);
 
         }
 
@@ -146,6 +149,8 @@ namespace SamuraiFox.Moa {
 
                 if (nestIndex > maxNestChildrenCount - 1) {
 
+                    // Nest is built, don't show any more outlines
+                    OnNestBuild.Invoke();
                     t.DOScale (Vector3.zero, 0.5f);
 
                 } else {
