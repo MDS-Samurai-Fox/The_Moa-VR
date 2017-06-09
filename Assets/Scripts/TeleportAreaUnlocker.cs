@@ -11,9 +11,9 @@ public class TeleportAreaUnlocker : MonoBehaviour {
 
         teleportArea = GetComponent<TeleportArea> ();
 
-		if (teleportArea == null) {
-			Destroy(this.gameObject);
-		}
+        if (teleportArea == null) {
+            Destroy (this.gameObject);
+        }
 
     }
 

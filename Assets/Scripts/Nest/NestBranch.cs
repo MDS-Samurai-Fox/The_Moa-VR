@@ -31,21 +31,6 @@ public class NestBranch : MonoBehaviour {
         ControllerButtonHints.HideTextHint(hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);
     }
 
-    //-------------------------------------------------
-    // Called when this GameObject is detached from the hand
-    //-------------------------------------------------
-    private void OnDetachedFromHand(Hand hand) {
-        Debug.Log("OnDetachedFromHand " + name);
-        // ControllerButtonHints.HideTextHint(hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
-    }
-
-    //-------------------------------------------------
-    // Called every Update() while this GameObject is attached to the hand
-    //-------------------------------------------------
-    private void HandAttachedUpdate(Hand hand) {
-        // ControllerButtonHints.ShowTextHint(hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger, "Throw inside the glowing nest", true);
-    }
-
     /// <summary>
     /// OnCollisionEnter is called when this collider/rigidbody has begun
     /// touching another rigidbody/collider.
