@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour {
     public static AudioManager Instance { get; private set; }
 
     public Transform moa;
+    public Transform eagle;
 
     public Sound[] sounds;
 
@@ -33,12 +34,19 @@ public class AudioManager : MonoBehaviour {
                 s.source = moa.gameObject.AddComponent<AudioSource> ();
                 s.source.spatialBlend = 0.6f;
 
-            } else if (s.name == "Screech") {
+            } else if (s.name == "Screech Moa") {
 
                 s.source = moa.gameObject.AddComponent<AudioSource> ();
-                s.source.spatialBlend = 0.35f;
+                s.source.spatialBlend = 0.4f;
 
-            } else {
+            } 
+            // else if (s.name == "Screech Eagle") {
+
+            //     s.source = eagle.gameObject.AddComponent<AudioSource> ();
+            //     s.source.spatialBlend = 0.25f;
+
+            // }
+            else {
 
                 s.source = gameObject.AddComponent<AudioSource> ();
 
