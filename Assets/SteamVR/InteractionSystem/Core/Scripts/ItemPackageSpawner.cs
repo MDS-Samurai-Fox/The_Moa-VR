@@ -302,12 +302,16 @@ namespace Valve.VR.InteractionSystem {
                 useFadedPreview = true;
 
                 if (shouldInvokePickupEventIndefinitely) {
+                    
                     pickupEvent.Invoke ();
+                    
                 } else {
+                    
                     if (pickupInvokeCount < 1) {
                         pickupEvent.Invoke ();
                         pickupInvokeCount++;
                     }
+                    
                 }
 
                 CreatePreviewObject ();

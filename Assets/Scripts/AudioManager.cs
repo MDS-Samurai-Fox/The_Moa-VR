@@ -40,12 +40,18 @@ public class AudioManager : MonoBehaviour {
                 s.source.spatialBlend = 0.4f;
 
             } 
-            // else if (s.name == "Screech Eagle") {
+            else if (s.name == "Eating") {
 
-            //     s.source = eagle.gameObject.AddComponent<AudioSource> ();
-            //     s.source.spatialBlend = 0.25f;
+                s.source = moa.gameObject.AddComponent<AudioSource> ();
+                s.source.spatialBlend = 0.5f;
 
-            // }
+            }
+            else if (s.name == "Screech Eagle") {
+
+                s.source = eagle.gameObject.AddComponent<AudioSource> ();
+                s.source.spatialBlend = 0.25f;
+
+            }
             else {
 
                 s.source = gameObject.AddComponent<AudioSource> ();

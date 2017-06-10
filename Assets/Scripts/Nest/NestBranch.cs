@@ -6,7 +6,7 @@ using Valve.VR.InteractionSystem;
 public class NestBranch : MonoBehaviour {
 
     private bool canPlayHitSound = true;
-    
+
     private bool firstCollision = true;
 
     //-------------------------------------------------
@@ -37,17 +37,26 @@ public class NestBranch : MonoBehaviour {
     /// </summary>
     /// <param name="other">The Collision data associated with this collision.</param>
     void OnCollisionEnter(Collision other) {
-        
+
         if (firstCollision) {
             firstCollision = false;
             return;
         }
 
-        Debug.Log("Collision Enter");
+        Debug.Log("Collision enter with " + other.collider.name);
 
         if (canPlayHitSound) {
             canPlayHitSound = false;
             AudioManager.Instance.Play("Stick");
+        }
+
+        TargetController target = other.collider.gameObject.GetComponentInParent<TargetController>();
+
+        // Hit a minigame target
+        if (target != null) {
+            
+            target.TakeDamage();
+
         }
 
     }

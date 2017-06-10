@@ -101,11 +101,17 @@ namespace Valve.VR.InteractionSystem {
             }
 
             for (int i = 0; i < transform.childCount; i++) {
-
-				Destroy(transform.GetChild(i).gameObject);
+                
+                transform.GetChild(i).GetComponent<ParticleSystem>().Stop();
+                StartCoroutine(DestroyTorchAfter(4, transform.GetChild(i).gameObject));
 
             }
 
+        }
+        
+        private IEnumerator DestroyTorchAfter(float seconds, GameObject g) {
+            yield return new WaitForSeconds(seconds);
+            Destroy(g);
         }
 
     }

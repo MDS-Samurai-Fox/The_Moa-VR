@@ -13,6 +13,8 @@ namespace SamuraiFox.Moa {
     [RequireComponent(typeof (Interactable))]
     public class BerryTreeController : MonoBehaviour {
 
+        private Animator animator;
+
         public GameObject berryPrefab;
 
         [EnumFlags]
@@ -25,8 +27,13 @@ namespace SamuraiFox.Moa {
 
         private float attachTime;
 
-        //-------------------------------------------------
-        void Awake() {
+        /// <summary>
+        /// Start is called on the frame when a script is enabled just before
+        /// any of the Update methods is called the first time.
+        /// </summary>
+        void Start() {
+
+            animator = GetComponentInChildren<Animator>();
 
         }
 
@@ -59,25 +66,46 @@ namespace SamuraiFox.Moa {
 
             if (hand.GetStandardInteractionButtonDown() || ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))) {
 
-                if (hand.currentAttachedObject.GetComponent<BerryInteractable>() == null) {
-
-                    Debug.Log("Instantiating berry");
-
-                    ControllerButtonHints.HideTextHint(hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);
+                if (hand.currentAttachedObject == null) {
+                    
+                    animator.SetBool("isShaking", true);
+                    // animator.SetBool("isShaking", false);
 
                     OnBerryPickUpEvent.Invoke();
 
                     GameObject berry = Instantiate(berryPrefab, hand.gameObject.transform.position, Quaternion.identity);
 
-                    // Call this to continue receiving HandHoverUpdate messages,
-                    // and prevent the hand from hovering over anything else
-                    // hand.HoverLock( berry.GetComponent<Interactable>() );
-
-                    // Attach this object to the hand
                     hand.AttachObject(berry, attachmentFlags);
-                } else {
 
-                    Debug.Log("Already picking up berry");
+                    return;
+
+                } else {
+                    
+                    animator.SetBool("isShaking", true);
+                    // animator.SetBool("isShaking", false);
+
+                    if (hand.currentAttachedObject.GetComponent<BerryInteractable>() == null) {
+
+                        Debug.Log("Instantiating berry");
+
+                        ControllerButtonHints.HideTextHint(hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);
+
+                        OnBerryPickUpEvent.Invoke();
+
+                        GameObject berry = Instantiate(berryPrefab, hand.gameObject.transform.position, Quaternion.identity);
+
+                        // Call this to continue receiving HandHoverUpdate messages,
+                        // and prevent the hand from hovering over anything else
+                        // hand.HoverLock( berry.GetComponent<Interactable>() );
+
+                        // Attach this object to the hand
+                        hand.AttachObject(berry, attachmentFlags);
+
+                    } else {
+
+                        Debug.Log("Already picking up berry");
+
+                    }
 
                 }
 

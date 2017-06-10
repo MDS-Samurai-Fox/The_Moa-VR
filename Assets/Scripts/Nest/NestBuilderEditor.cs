@@ -5,18 +5,14 @@ using UnityEditor;
 namespace SamuraiFox.Moa {
 
     [CustomEditor (typeof (NestBuilder))]
-    public class NestBuilderHelper : Editor {
+    public class NestBuilderEditor : Editor {
 
 		public override void OnInspectorGUI() {
 
 			NestBuilder nest = (NestBuilder) target;
 
 			// Called every time the inspector changes a value
-			if (DrawDefaultInspector()) {
-
-				
-
-			}
+			if (DrawDefaultInspector()) {}
 
 			if (GUILayout.Button("Build Nest")) {
 

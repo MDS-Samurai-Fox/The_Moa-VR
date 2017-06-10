@@ -3,119 +3,112 @@
 // Purpose: Spawns balloons
 //
 //=============================================================================
-
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
-namespace Valve.VR.InteractionSystem
-{
-	//-------------------------------------------------------------------------
-	public class BalloonSpawner : MonoBehaviour
-	{
-		public float minSpawnTime = 5f;
-		public float maxSpawnTime = 15f;
-		private float nextSpawnTime;
-		public GameObject balloonPrefab;
+namespace Valve.VR.InteractionSystem {
+    //-------------------------------------------------------------------------
+    public class BalloonSpawner : MonoBehaviour {
+        public bool shouldAlwaysSpawn = true;
 
-		public bool autoSpawn = true;
-		public bool spawnAtStartup = true;
+        public float minSpawnTime = 5f;
+        public float maxSpawnTime = 15f;
+        private float nextSpawnTime;
+        public GameObject balloonPrefab;
 
-		public bool playSounds = true;
-		public SoundPlayOneshot inflateSound;
-		public SoundPlayOneshot stretchSound;
+        public bool autoSpawn = true;
+        public bool spawnAtStartup = true;
 
-		public bool sendSpawnMessageToParent = false;
+        public bool playSounds = true;
+        public SoundPlayOneshot inflateSound;
+        public SoundPlayOneshot stretchSound;
 
-		public float scale = 1f;
+        public bool sendSpawnMessageToParent = false;
 
-		public Transform spawnDirectionTransform;
-		public float spawnForce;
+        public float scale = 1f;
 
-		public bool attachBalloon = false;
+        public Transform spawnDirectionTransform;
+        public float spawnForce;
 
-		public Balloon.BalloonColor color = Balloon.BalloonColor.Random;
+        public bool attachBalloon = false;
 
+        public Balloon.BalloonColor color = Balloon.BalloonColor.Random;
 
-		//-------------------------------------------------
-		void Start()
-		{
-			if ( balloonPrefab == null )
-			{
-				return;
-			}
+        //-------------------------------------------------
+        void Start() {
+            if (balloonPrefab == null) {
+                return;
+            }
 
-			if ( autoSpawn && spawnAtStartup )
-			{
-				SpawnBalloon( color );
-				nextSpawnTime = Random.Range( minSpawnTime, maxSpawnTime ) + Time.time;
-			}
-		}
+            if (autoSpawn && spawnAtStartup) {
+                SpawnBalloon(color);
+                nextSpawnTime = Random.Range(minSpawnTime, maxSpawnTime) + Time.time;
+            }
+        }
 
+        //-------------------------------------------------
+        void Update() {
+            if (balloonPrefab == null) {
+                return;
+            }
 
-		//-------------------------------------------------
-		void Update()
-		{
-			if ( balloonPrefab == null )
-			{
-				return;
-			}
+            if ((Time.time > nextSpawnTime) && autoSpawn) {
+                SpawnBalloon(color);
+                nextSpawnTime = Random.Range(minSpawnTime, maxSpawnTime) + Time.time;
+            }
+        }
 
-			if ( ( Time.time > nextSpawnTime ) && autoSpawn )
-			{
-				SpawnBalloon( color );
-				nextSpawnTime = Random.Range( minSpawnTime, maxSpawnTime ) + Time.time;
-			}
-		}
+        //-------------------------------------------------
+        public GameObject SpawnBalloon(Balloon.BalloonColor color = Balloon.BalloonColor.Red) {
+            if (balloonPrefab == null) {
+                return null;
+            }
+            GameObject balloon = Instantiate(balloonPrefab, transform.position, transform.rotation) as GameObject;
+            balloon.transform.localScale = new Vector3(scale, scale, scale);
+            if (attachBalloon) {
+                balloon.transform.parent = transform;
+            }
 
+            if (sendSpawnMessageToParent) {
+                if (transform.parent != null) {
+                    transform.parent.SendMessage("OnBalloonSpawned", balloon, SendMessageOptions.DontRequireReceiver);
+                }
+            }
 
-		//-------------------------------------------------
-		public GameObject SpawnBalloon( Balloon.BalloonColor color = Balloon.BalloonColor.Red )
-		{
-			if ( balloonPrefab == null )
-			{
-				return null;
-			}
-			GameObject balloon = Instantiate( balloonPrefab, transform.position, transform.rotation ) as GameObject;
-			balloon.transform.localScale = new Vector3( scale, scale, scale );
-			if ( attachBalloon )
-			{
-				balloon.transform.parent = transform;
-			}
+            if (playSounds) {
+                if (inflateSound != null) {
+                    inflateSound.Play();
+                }
+                if (stretchSound != null) {
+                    stretchSound.Play();
+                }
+            }
+            balloon.GetComponentInChildren<Balloon>().SetColor(color);
+            if (spawnDirectionTransform != null) {
+                balloon.GetComponentInChildren<Rigidbody>().AddForce(spawnDirectionTransform.forward * spawnForce);
+            }
 
-			if ( sendSpawnMessageToParent )
-			{
-				if ( transform.parent != null )
-				{
-					transform.parent.SendMessage( "OnBalloonSpawned", balloon, SendMessageOptions.DontRequireReceiver );
+            return balloon;
+        }
+
+        //-------------------------------------------------
+        public void SpawnBalloonFromEvent(int color) {
+
+            if (!shouldAlwaysSpawn) {
+				
+				float chance = Random.Range(0.0f, 1.0f);
+				
+				if (chance > 0.5f) {
+					return;
 				}
-			}
+				
+				Debug.Log("Spawning Balloon");
+				
+			 }
 
-			if ( playSounds )
-			{
-				if ( inflateSound != null )
-				{
-					inflateSound.Play();
-				}
-				if ( stretchSound != null )
-				{
-					stretchSound.Play();
-				}
-			}
-			balloon.GetComponentInChildren<Balloon>().SetColor( color );
-			if ( spawnDirectionTransform != null )
-			{
-				balloon.GetComponentInChildren<Rigidbody>().AddForce( spawnDirectionTransform.forward * spawnForce );
-			}
+            // Copy of SpawnBalloon using int because we can't pass in enums through the event system
+            SpawnBalloon((Balloon.BalloonColor) color);
 
-			return balloon;
-		}
-
-
-		//-------------------------------------------------
-		public void SpawnBalloonFromEvent( int color )
-		{
-			// Copy of SpawnBalloon using int because we can't pass in enums through the event system
-			SpawnBalloon( (Balloon.BalloonColor)color );
-		}
-	}
+        }
+    }
 }

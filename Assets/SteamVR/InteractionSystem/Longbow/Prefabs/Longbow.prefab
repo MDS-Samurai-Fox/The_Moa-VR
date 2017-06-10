@@ -1792,8 +1792,8 @@ MonoBehaviour:
   arrowHandPrefab: {fileID: 187848, guid: d410d7126dd411c4ea651fc94eae9202, type: 2}
   nocked: 0
   pulled: 0
-  arrowMinVelocity: 3
-  arrowMaxVelocity: 30
+  arrowMinVelocity: 10
+  arrowMaxVelocity: 60
   drawOffset: 0.09
   bowDrawLinearMapping: {fileID: 11461100}
   drawSound: {fileID: 11471204}
