@@ -33,3 +33,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 .vscode/
+Assets/_Scenes/Environment/LightingData.asset
+Assets/_Scenes/Environment/LightingData.asset.meta

@@ -4,6 +4,10 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 namespace SamuraiFox.Moa {
     public class EagleController : MonoBehaviour {
 
@@ -140,5 +144,26 @@ namespace SamuraiFox.Moa {
         }
 
     }
+
+#if UNITY_EDITOR
+    [CustomEditor(typeof (EagleController))]
+    public class EagleControllerEditor : Editor {
+
+        public override void OnInspectorGUI() {
+
+            EagleController eagle = (EagleController) target;
+
+            if (DrawDefaultInspector()) { }
+
+            if (GUILayout.Button("Spawn Eagle")) {
+
+                eagle.SpawnEagle();
+
+            }
+
+        }
+
+    }
+#endif
 
 }

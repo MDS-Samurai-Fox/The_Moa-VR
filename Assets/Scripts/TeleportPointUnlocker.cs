@@ -9,10 +9,12 @@ public class TeleportPointUnlocker : MonoBehaviour {
 
 	public void Unlock() {
 		teleportPoint.locked = false;
+		teleportPoint.markerActive = true;
 	}
 
 	public void Lock() {
 		teleportPoint.locked = true;
+		teleportPoint.markerActive = false;
 	}
 
 }

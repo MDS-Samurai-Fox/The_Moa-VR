@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using Valve.VR.InteractionSystem;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace SamuraiFox.Moa {
 
@@ -186,5 +189,34 @@ namespace SamuraiFox.Moa {
         }
 
     }
+
+#if UNITY_EDITOR
+
+    [CustomEditor(typeof (NestBuilder))]
+    public class NestBuilderEditor : Editor {
+
+        public override void OnInspectorGUI() {
+
+            NestBuilder nest = (NestBuilder) target;
+
+            // Called every time the inspector changes a value
+            if (DrawDefaultInspector()) { }
+
+            if (GUILayout.Button("Build Nest")) {
+
+                nest.BuildNest();
+
+            }
+
+            if (GUILayout.Button("Hide Nest")) {
+
+                nest.HideNest();
+
+            }
+
+        }
+
+    }
+#endif
 
 }

@@ -70,7 +70,10 @@ namespace Valve.VR.InteractionSystem
 
 			animation = GetComponent<Animation>();
 
-			tintColorID = Shader.PropertyToID( "_TintColor" );
+			// tintColorID = Shader.PropertyToID( "_TintColor" );
+			
+			// Swap for this value because we want the points to be invisible (And it's causing a bug)
+			tintColorID = 0;
 
 			moveLocationIcon.gameObject.SetActive( false );
 			switchSceneIcon.gameObject.SetActive( false );
@@ -189,8 +192,8 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		public override void SetAlpha( float tintAlpha, float alphaPercent )
 		{
-			tintColor = markerMesh.material.GetColor( tintColorID );
-			tintColor.a = tintAlpha;
+			// tintColor = markerMesh.material.GetColor( tintColorID );
+			// tintColor.a = tintAlpha;
 
 			markerMesh.material.SetColor( tintColorID, tintColor );
 			switchSceneIcon.material.SetColor( tintColorID, tintColor );
@@ -235,8 +238,16 @@ namespace Valve.VR.InteractionSystem
 		{
 			markerMesh = transform.Find( "teleport_marker_mesh" ).GetComponent<MeshRenderer>();
 			switchSceneIcon = transform.Find( "teleport_marker_lookat_joint/teleport_marker_icons/switch_scenes_icon" ).GetComponent<MeshRenderer>();
-			moveLocationIcon = transform.Find( "teleport_marker_lookat_joint/teleport_marker_icons/move_location_icon" ).GetComponent<MeshRenderer>();
-			lockedIcon = transform.Find( "teleport_marker_lookat_joint/teleport_marker_icons/locked_icon" ).GetComponent<MeshRenderer>();
+			
+			// Originals
+			// moveLocationIcon = transform.Find( "teleport_marker_lookat_joint/teleport_marker_icons/move_location_icon" ).GetComponent<MeshRenderer>();
+			// lockedIcon = transform.Find( "teleport_marker_lookat_joint/teleport_marker_icons/locked_icon" ).GetComponent<MeshRenderer>();
+			
+			// New (Swap them)
+			moveLocationIcon = transform.Find( "teleport_marker_lookat_joint/teleport_marker_icons/locked_icon" ).GetComponent<MeshRenderer>();
+			lockedIcon = transform.Find( "teleport_marker_lookat_joint/teleport_marker_icons/move_location_icon" ).GetComponent<MeshRenderer>();
+			
+			// Back to normal
 			lookAtJointTransform = transform.Find( "teleport_marker_lookat_joint" );
 
 			titleText = transform.Find( "teleport_marker_lookat_joint/teleport_marker_canvas/teleport_marker_canvas_text" ).GetComponent<Text>();
