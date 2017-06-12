@@ -20,6 +20,8 @@ namespace SamuraiFox.Moa {
         [EnumFlags]
         public Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags;
 
+        public bool canPickUp = true;
+
         public UnityEvent OnBerryPickUpEvent;
 
         private Vector3 oldPosition;
@@ -41,6 +43,10 @@ namespace SamuraiFox.Moa {
         // Called when a Hand starts hovering over this object
         //-------------------------------------------------
         private void OnHandHoverBegin(Hand hand) {
+
+            if (!canPickUp) {
+                return;
+            }
 
             GameObject hand1 = GameObject.Find("BlankController_Hand1");
             GameObject hand2 = GameObject.Find("BlankController_Hand2");
@@ -64,6 +70,10 @@ namespace SamuraiFox.Moa {
         //-------------------------------------------------
         private void HandHoverUpdate(Hand hand) {
 
+            if (!canPickUp) {
+                return;
+            }
+
             if (hand.GetStandardInteractionButtonDown() || ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))) {
 
                 if (hand.currentAttachedObject == null) {
@@ -76,6 +86,8 @@ namespace SamuraiFox.Moa {
                     GameObject berry = Instantiate(berryPrefab, hand.gameObject.transform.position, Quaternion.identity);
 
                     hand.AttachObject(berry, attachmentFlags);
+
+                    canPickUp = false;
 
                     return;
 
@@ -100,6 +112,8 @@ namespace SamuraiFox.Moa {
 
                         // Attach this object to the hand
                         hand.AttachObject(berry, attachmentFlags);
+
+                        canPickUp = false;
 
                     } else {
 

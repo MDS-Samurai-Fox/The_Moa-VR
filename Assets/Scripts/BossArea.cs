@@ -8,8 +8,8 @@ public class BossArea : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        gameObject.SetActive (false);
-        transform.DOScale (Vector3.zero, 0);
+        // gameObject.SetActive (false);
+        // transform.DOScale (Vector3.zero, 0);
 
     }
 

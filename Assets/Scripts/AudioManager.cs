@@ -32,24 +32,24 @@ public class AudioManager : MonoBehaviour {
             if (s.name == "Footstep") {
 
                 s.source = moa.gameObject.AddComponent<AudioSource> ();
-                s.source.spatialBlend = 0.6f;
+                // s.source.spatialBlend = 0.3f;
 
             } else if (s.name == "Screech Moa") {
 
                 s.source = moa.gameObject.AddComponent<AudioSource> ();
-                s.source.spatialBlend = 0.4f;
+                s.source.spatialBlend = 0.3f;
 
             } 
             else if (s.name == "Eating") {
 
                 s.source = moa.gameObject.AddComponent<AudioSource> ();
-                s.source.spatialBlend = 0.5f;
+                s.source.spatialBlend = 0.3f;
 
             }
             else if (s.name == "Screech Eagle") {
 
                 s.source = eagle.gameObject.AddComponent<AudioSource> ();
-                s.source.spatialBlend = 0.25f;
+                s.source.spatialBlend = 0.3f;
 
             }
             else {

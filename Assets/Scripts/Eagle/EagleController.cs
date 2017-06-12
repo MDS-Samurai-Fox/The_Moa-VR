@@ -51,8 +51,10 @@ namespace SamuraiFox.Moa {
         void Update() {
 
             if (state == State.Arriving) {
+
                 eagle.transform.LookAt(arrivingPointBeforeAttack);
                 return;
+
             } else if (state == State.Attacking) {
 
                 if (health <= 0) {
@@ -102,11 +104,10 @@ namespace SamuraiFox.Moa {
 
         private IEnumerator ArrivalHelper() {
 
-            eagle.transform.DOScale(Vector3.one, 3);
+            eagle.transform.DOScale(Vector3.one * 2, 3);
+            AudioManager.Instance.Play("Screech Eagle");
 
             yield return new WaitForSeconds(3);
-
-            AudioManager.Instance.Play("Screech eagle");
 
             eagle.transform.DOMove(arrivingPointBeforeAttack.position, arrivalDuration).SetEase(Ease.Linear).OnComplete(BeginAttack);
             eagle.transform.DOLookAt(arrivingPointBeforeAttack.position, 0.5f).SetEase(Ease.Linear);

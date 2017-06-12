@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 901f6cf8b9a1fdd45bb19ca593861370
+timeCreated: 1497247111
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Woodcut
+  fontNames:
+  - Woodcut
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
