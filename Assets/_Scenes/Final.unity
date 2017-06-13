@@ -1730,15 +1730,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4950650360176750, guid: fe4695fd353a5384692904d0884fc1e5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.638
       objectReference: {fileID: 0}
     - target: {fileID: 4950650360176750, guid: fe4695fd353a5384692904d0884fc1e5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.406
+      value: 0.408
       objectReference: {fileID: 0}
     - target: {fileID: 4950650360176750, guid: fe4695fd353a5384692904d0884fc1e5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.115
+      value: -1.518
       objectReference: {fileID: 0}
     - target: {fileID: 4950650360176750, guid: fe4695fd353a5384692904d0884fc1e5, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1762,19 +1762,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4950650360176750, guid: fe4695fd353a5384692904d0884fc1e5, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4950650360176750, guid: fe4695fd353a5384692904d0884fc1e5, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4950650360176750, guid: fe4695fd353a5384692904d0884fc1e5, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1568795008681276, guid: fe4695fd353a5384692904d0884fc1e5, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe4695fd353a5384692904d0884fc1e5, type: 2}
@@ -2713,6 +2713,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1076749256}
         m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 594440404}
+        m_MethodName: TurnOnLights
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4726,6 +4737,74 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 733a1c00b445e994cb277b0a5c9f530b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &965750730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1932991883724770, guid: f00e04cd19621714bb0f691b9005c37b,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 965750731}
+  - component: {fileID: 965750732}
+  m_Layer: 0
+  m_Name: 'Point light '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &965750731
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4889176921746466, guid: f00e04cd19621714bb0f691b9005c37b,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 965750730}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.137, y: 1.689, z: -0.419}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1726957763}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &965750732
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 108299003872514928, guid: f00e04cd19621714bb0f691b9005c37b,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 965750730}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 0.75735295, g: 0.7114202, b: 0.61256486, a: 1}
+  m_Intensity: 1.23
+  m_Range: 12
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &974049883
 GameObject:
   m_ObjectHideFlags: 0
@@ -11263,6 +11342,24 @@ Prefab:
       propertyPath: m_Name
       value: TeleportArea - Part 3
       objectReference: {fileID: 0}
+    - target: {fileID: 23128147339848362, guid: 1155ed2fbfd55204299806a2839dd867,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9bca316c75f37cc429ac17c8ea79d5cd, type: 2}
+    - target: {fileID: 1611888730348666, guid: 1155ed2fbfd55204299806a2839dd867, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23031022444573492, guid: 1155ed2fbfd55204299806a2839dd867,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9bca316c75f37cc429ac17c8ea79d5cd, type: 2}
+    - target: {fileID: 1021690554361392, guid: 1155ed2fbfd55204299806a2839dd867, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1155ed2fbfd55204299806a2839dd867, type: 2}
   m_IsPrefabParent: 0
@@ -11287,6 +11384,7 @@ Transform:
   - {fileID: 1996174770}
   - {fileID: 128942172}
   - {fileID: 1298151240}
+  - {fileID: 965750731}
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
