@@ -5,16 +5,38 @@ using Valve.VR.InteractionSystem;
 
 public class TeleportPointUnlocker : MonoBehaviour {
 
-	public TeleportPoint teleportPoint;
+    public TeleportPoint teleportPoint;
 
-	public void Unlock() {
-		teleportPoint.locked = false;
-		teleportPoint.markerActive = true;
-	}
+    private bool canBeLocked = true;
 
-	public void Lock() {
-		teleportPoint.locked = true;
-		teleportPoint.markerActive = false;
-	}
+    void Start () {
+
+        teleportPoint = GetComponent<TeleportPoint> ();
+
+        if (teleportPoint == null) {
+            Destroy (this.gameObject);
+        }
+
+    }
+
+    public void Unlock () {
+
+        teleportPoint.locked = false;
+        teleportPoint.markerActive = true;
+
+    }
+
+    public void Lock () {
+
+        if (canBeLocked) {
+
+            teleportPoint.locked = true;
+            teleportPoint.markerActive = false;
+
+            canBeLocked = false;
+
+        }
+
+    }
 
 }

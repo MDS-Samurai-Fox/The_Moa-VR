@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour {
             if (s.name == "Footstep") {
 
                 s.source = moa.gameObject.AddComponent<AudioSource> ();
-                // s.source.spatialBlend = 0.3f;
+                s.source.spatialBlend = 0.15f;
 
             } else if (s.name == "Screech Moa") {
 

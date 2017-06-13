@@ -7,6 +7,8 @@ public class TeleportAreaUnlocker : MonoBehaviour {
 
     public TeleportArea teleportArea;
 
+    private bool canBeLocked = true;
+
     void Start () {
 
         teleportArea = GetComponent<TeleportArea> ();
@@ -22,7 +24,15 @@ public class TeleportAreaUnlocker : MonoBehaviour {
     }
 
     public void Lock () {
-        teleportArea.locked = true;
+
+        if (canBeLocked) {
+
+            teleportArea.locked = true;
+
+            canBeLocked = false;
+
+        }
+
     }
 
 }
