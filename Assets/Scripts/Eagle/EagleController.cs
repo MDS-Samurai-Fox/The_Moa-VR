@@ -13,7 +13,7 @@ namespace SamuraiFox.Moa {
 
         public enum State {
             Arriving,
-            Attacking,
+            Circling,
             Dead
         }
 
@@ -55,7 +55,7 @@ namespace SamuraiFox.Moa {
                 eagle.transform.LookAt(arrivingPointBeforeAttack);
                 return;
 
-            } else if (state == State.Attacking) {
+            } else if (state == State.Circling) {
 
                 if (health <= 0) {
 
@@ -122,7 +122,7 @@ namespace SamuraiFox.Moa {
 
             OnEagleAttack.Invoke();
 
-            state = State.Attacking;
+            state = State.Circling;
 
             // Change between (0, 0, 0) and (180, 0, 0) depending on the model's orientation
             // eagle.transform.eulerAngles = new Vector3(0, 180, 0);
