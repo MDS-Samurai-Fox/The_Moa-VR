@@ -27,6 +27,8 @@ namespace SamuraiFox.Moa {
                 AudioManager.Instance.Play("Footstep");
             }
 
+			Debug.Log ("Foot trigger enter");
+
         }
 
         /// <summary>
@@ -36,6 +38,7 @@ namespace SamuraiFox.Moa {
         void OnTriggerExit(Collider other) {
 
             canPlayFootstep = true;
+			Debug.Log ("Foot trigger exit");
 
         }
 

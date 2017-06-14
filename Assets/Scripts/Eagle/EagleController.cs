@@ -98,7 +98,9 @@ namespace SamuraiFox.Moa {
 
         public void SpawnEagle() {
 
+			Debug.Log ("Before arrival helper");
             StartCoroutine(ArrivalHelper());
+			Debug.Log ("Spawn eagle");
 
         }
 

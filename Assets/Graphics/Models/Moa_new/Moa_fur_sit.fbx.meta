@@ -71,7 +71,7 @@ ModelImporter:
     400062: transform17
     4300000: Moa
     4300002: polySurface78
-    7400000: Moa_sitDown
+    7400000: Moa_sitDown_NEW
     9500000: //RootNode
     13700000: Moa
     13700002: polySurface78
@@ -99,7 +99,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Moa_sitDown
+      name: Moa_sitDown_NEW
       takeName: Take 001
       firstFrame: 1
       lastFrame: 120

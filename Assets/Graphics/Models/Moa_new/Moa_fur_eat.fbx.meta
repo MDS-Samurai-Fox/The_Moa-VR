@@ -134,7 +134,7 @@ ModelImporter:
     4300000: Moa
     4300002: eyes
     4300004: polySurface78
-    7400000: Moa_eat
+    7400000: Moa_eat_NEW
     9500000: //RootNode
     13700000: eyes
     13700002: Moa
@@ -163,7 +163,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Moa_eat
+      name: Moa_eat_NEW
       takeName: Take 001
       firstFrame: 1
       lastFrame: 120

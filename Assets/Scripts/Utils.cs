@@ -42,6 +42,12 @@ public class Utils : MonoBehaviour {
 
     }
 
+	public void FadeEggTransformIn (Transform t) {
+
+		t.DOScale (2, fadeDuration);
+
+	}
+
     public void FadeTransformOut (Transform t) {
 
         t.DOScale (0, fadeDuration);

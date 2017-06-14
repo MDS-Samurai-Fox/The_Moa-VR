@@ -69,7 +69,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Take 001 0
+  m_Name: Attack
   m_Speed: 0.75
   m_CycleOffset: 0
   m_Transitions:
@@ -82,7 +82,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ae2a35ce0efdc5344a321022d7f5f51d, type: 3}
+  m_Motion: {fileID: 7400000, guid: a92ef8012a61bac45a3b9c9f21828165, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -93,7 +93,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Take 001
+  m_Name: Fly
   m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
@@ -121,7 +121,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102218019429732638}
-    m_Position: {x: 422, y: 211, z: 0}
+    m_Position: {x: 420, y: 216, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102182348151207784}
     m_Position: {x: 534, y: 82, z: 0}

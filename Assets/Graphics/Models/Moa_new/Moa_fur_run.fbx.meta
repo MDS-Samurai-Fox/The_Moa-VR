@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d15ab6c3170caef468ab5b04f534bffd
-timeCreated: 1497149818
+guid: ee6438b43440bf94e8384abd19f4b021
+timeCreated: 1497393177
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -32,11 +32,35 @@ ModelImporter:
     100048: moaWithHairPlanes3_LOWPOLY:Moa_eat:root
     100050: moaWithHairPlanes3_LOWPOLY:Moa_eat:shoulder
     100052: moaWithHairPlanes3_LOWPOLY:Moa_eat:tail
-    100054: polySurface66
-    100056: polySurface77
-    100058: polySurface78
-    100060: transform16
-    100062: transform17
+    100054: moaWithHairPlanes3_LOWPOLY:polySurface6
+    100056: polySurface66
+    100058: polySurface66 1
+    100060: polySurface67
+    100062: polySurface68
+    100064: polySurface69
+    100066: polySurface70
+    100068: polySurface71
+    100070: polySurface72
+    100072: polySurface73
+    100074: polySurface74
+    100076: polySurface75
+    100078: polySurface76
+    100080: polySurface77
+    100082: polySurface78
+    100084: transform10
+    100086: transform11
+    100088: transform12
+    100090: transform13
+    100092: transform14
+    100094: transform15
+    100096: transform16
+    100098: transform17
+    100100: transform4
+    100102: transform5
+    100104: transform6
+    100106: transform7
+    100108: transform8
+    100110: transform9
     400000: Moa
     400002: //RootNode
     400004: moaWithHairPlanes3_LOWPOLY:Moa_eat:bottom_beak
@@ -64,14 +88,38 @@ ModelImporter:
     400048: moaWithHairPlanes3_LOWPOLY:Moa_eat:root
     400050: moaWithHairPlanes3_LOWPOLY:Moa_eat:shoulder
     400052: moaWithHairPlanes3_LOWPOLY:Moa_eat:tail
-    400054: polySurface66
-    400056: polySurface77
-    400058: polySurface78
-    400060: transform16
-    400062: transform17
+    400054: moaWithHairPlanes3_LOWPOLY:polySurface6
+    400056: polySurface66
+    400058: polySurface66 1
+    400060: polySurface67
+    400062: polySurface68
+    400064: polySurface69
+    400066: polySurface70
+    400068: polySurface71
+    400070: polySurface72
+    400072: polySurface73
+    400074: polySurface74
+    400076: polySurface75
+    400078: polySurface76
+    400080: polySurface77
+    400082: polySurface78
+    400084: transform10
+    400086: transform11
+    400088: transform12
+    400090: transform13
+    400092: transform14
+    400094: transform15
+    400096: transform16
+    400098: transform17
+    400100: transform4
+    400102: transform5
+    400104: transform6
+    400106: transform7
+    400108: transform8
+    400110: transform9
     4300000: Moa
     4300002: polySurface78
-    7400000: Moa_sittingIdle_NEW
+    7400000: Moa_run_NEW
     9500000: //RootNode
     13700000: Moa
     13700002: polySurface78
@@ -99,10 +147,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Moa_sittingIdle_NEW
+      name: Moa_run_NEW
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 200
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -178,6 +226,54 @@ ModelImporter:
       - path: moaWithHairPlanes3_LOWPOLY:Moa_eat:root/moaWithHairPlanes3_LOWPOLY:Moa_eat:shoulder/moaWithHairPlanes3_LOWPOLY:Moa_eat:neck_1/moaWithHairPlanes3_LOWPOLY:Moa_eat:neck_2/moaWithHairPlanes3_LOWPOLY:Moa_eat:neck_3/moaWithHairPlanes3_LOWPOLY:Moa_eat:neck_4/moaWithHairPlanes3_LOWPOLY:Moa_eat:neck_5/moaWithHairPlanes3_LOWPOLY:Moa_eat:neck_6/moaWithHairPlanes3_LOWPOLY:Moa_eat:head/moaWithHairPlanes3_LOWPOLY:Moa_eat:R_eye
         weight: 1
       - path: moaWithHairPlanes3_LOWPOLY:Moa_eat:root/moaWithHairPlanes3_LOWPOLY:Moa_eat:tail
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface66 1
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface66 1/transform15
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/polySurface72
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/polySurface72/transform14
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/polySurface73
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/polySurface73/transform13
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/polySurface74
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/polySurface74/transform12
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/polySurface75
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/polySurface75/transform11
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/polySurface76
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/polySurface76/transform10
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface67/transform5
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface68
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface68/transform9
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface69
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface69/transform8
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface70
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface70/transform7
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface71
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/polySurface71/transform6
+        weight: 1
+      - path: moaWithHairPlanes3_LOWPOLY:polySurface6/transform4
         weight: 1
       - path: polySurface66
         weight: 1

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ae2a35ce0efdc5344a321022d7f5f51d
-timeCreated: 1497319361
+guid: a92ef8012a61bac45a3b9c9f21828165
+timeCreated: 1497401471
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -24,23 +24,24 @@ ModelImporter:
     100032: L_wing_2
     100034: polySurface1
     100036: polySurface2
-    100038: R_clavicle1
-    100040: R_claw_1
-    100042: R_claw_2
-    100044: R_claw_3
-    100046: R_claw_4
-    100048: R_leg_0
-    100050: R_leg_1
-    100052: R_leg_2
-    100054: R_leg_3
-    100056: R_wing_1
-    100058: R_wing_2
-    100060: root
-    100062: spine_1
-    100064: spine_2
-    100066: tail1
-    100068: transform1
-    100070: transform2
+    100038: polySurface3
+    100040: R_clavicle1
+    100042: R_claw_1
+    100044: R_claw_2
+    100046: R_claw_3
+    100048: R_claw_4
+    100050: R_leg_0
+    100052: R_leg_1
+    100054: R_leg_2
+    100056: R_leg_3
+    100058: R_wing_1
+    100060: R_wing_2
+    100062: root
+    100064: spine_1
+    100066: spine_2
+    100068: tail1
+    100070: transform1
+    100072: transform2
     400000: ctrl_root
     400002: //RootNode
     400004: HaastsEagle12062017_half_zbrushUVd:Group2
@@ -60,29 +61,32 @@ ModelImporter:
     400032: L_wing_2
     400034: polySurface1
     400036: polySurface2
-    400038: R_clavicle1
-    400040: R_claw_1
-    400042: R_claw_2
-    400044: R_claw_3
-    400046: R_claw_4
-    400048: R_leg_0
-    400050: R_leg_1
-    400052: R_leg_2
-    400054: R_leg_3
-    400056: R_wing_1
-    400058: R_wing_2
-    400060: root
-    400062: spine_1
-    400064: spine_2
-    400066: tail1
-    400068: transform1
-    400070: transform2
+    400038: polySurface3
+    400040: R_clavicle1
+    400042: R_claw_1
+    400044: R_claw_2
+    400046: R_claw_3
+    400048: R_claw_4
+    400050: R_leg_0
+    400052: R_leg_1
+    400054: R_leg_2
+    400056: R_leg_3
+    400058: R_wing_1
+    400060: R_wing_2
+    400062: root
+    400064: spine_1
+    400066: spine_2
+    400068: tail1
+    400070: transform1
+    400072: transform2
     4300000: polySurface1
     4300002: polySurface2
-    7400000: eagle_fly
+    4300004: polySurface3
+    7400000: eagle_attack
     9500000: //RootNode
     13700000: polySurface1
     13700002: polySurface2
+    13700004: polySurface3
   materials:
     importMaterials: 1
     materialName: 0
@@ -107,7 +111,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: eagle_fly
+      name: eagle_attack
       takeName: Take 001
       firstFrame: 1
       lastFrame: 120
@@ -201,6 +205,8 @@ ModelImporter:
         weight: 1
       - path: HaastsEagle12062017_half_zbrushUVd:Group2/polySurface2
         weight: 1
+      - path: HaastsEagle12062017_half_zbrushUVd:Group2/polySurface3
+        weight: 1
       - path: HaastsEagle12062017_half_zbrushUVd:Group2/transform1
         weight: 1
       maskType: 3
@@ -223,7 +229,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
