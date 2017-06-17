@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 00b69d6a0fd211046889e177b0617734
-timeCreated: 1497409432
+guid: 392fed48d51de6443894f86399fb2947
+timeCreated: 1497680002
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -63,7 +63,7 @@ ModelImporter:
     400054: polySurface78
     4300000: Moa
     4300002: polySurface78
-    7400000: Moa_NEW_Squawk
+    7400000: Moa_New_Squawk
     9500000: //RootNode
     13700000: Moa
     13700002: polySurface78
@@ -91,7 +91,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Moa_NEW_Squawk
+      name: Moa_New_Squawk
       takeName: Take 001
       firstFrame: 1
       lastFrame: 200
