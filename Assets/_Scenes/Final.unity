@@ -7032,6 +7032,10 @@ Prefab:
       propertyPath: eagleContainer
       value: 
       objectReference: {fileID: 1894157725}
+    - target: {fileID: 4663074467055852, guid: a736487b5e31fa942afbc673ba9a8e99, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a736487b5e31fa942afbc673ba9a8e99, type: 2}
   m_IsPrefabParent: 0

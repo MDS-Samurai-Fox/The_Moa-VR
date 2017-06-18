@@ -46,9 +46,9 @@ namespace SamuraiFox.Moa {
         private bool HasAttacked = false;
         private bool LookingAtTarget = false;
         private bool AttackPositionSet = false;
+		private bool DeathInvokeCalled = false;
         private Vector3 target;
         private Vector3 attackPosition;
-        public Transform eagleContainer;
 
         private Animator animator;
 
@@ -67,8 +67,13 @@ namespace SamuraiFox.Moa {
 
         // Update is called once per frame
         void Update()
-        {
-            if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Fly")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly0")))
+        {           
+			if (health <= 0)
+			{
+				state = State.Dead;
+			}
+				
+			else if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Fly")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly0")))
             {
                 if ((HasArrived) && (!HasAttacked))
                 {
@@ -92,6 +97,8 @@ namespace SamuraiFox.Moa {
                 }
             }
 
+
+
             if (state == State.Arriving)
             {
 
@@ -102,13 +109,13 @@ namespace SamuraiFox.Moa {
             else if (state == State.Circling)
             {
 
-                if (health <= 0)
-                {
+           //     if (health <= 0)
+           //     {
 
-                    OnEagleDeath.Invoke();
-                    state = State.Dead;
+            //        OnEagleDeath.Invoke();
+            //        state = State.Dead;
 
-                }
+            //    }
 
                 // Rotate the transform around the middle
                 eagle.transform.RotateAround(Vector3.zero, Vector3.up, flyingSpeed * Time.deltaTime * 0.33f);
@@ -146,16 +153,16 @@ namespace SamuraiFox.Moa {
 
             else if (state == State.Attacking)
             {
-                if (health <= 0)
-                {
-                    state = State.Dead;
-                }
+            //    if (health <= 0)
+            //    {
+            //        state = State.Dead;
+            //    }
 
                 Debug.Log("Move towards player - state is attack");
 
                 if (!AttackPositionSet)
                 {
-                    Vector3 vectorToPlayer = (player.transform.position) - eagleContainer.position;
+                    Vector3 vectorToPlayer = (player.transform.position) - eagle.transform.position;
                     float distanceToPlayer = vectorToPlayer.magnitude;
                     Vector3 normalised = Vector3.Normalize(vectorToPlayer);
 
@@ -167,7 +174,7 @@ namespace SamuraiFox.Moa {
                     eagle.transform.LookAt(player.transform.position);
                     AttackPositionSet = true;
 
-                    //print("Eagle position: " + eagleContainer.position);
+                    //print("Eagle position: " + eagle.position);
                     //print("Player position " + player.transform.position);
                     //print("vectorToPlayer: " + vectorToPlayer);
                     //print("distanceToPlayer: " + distanceToPlayer);
@@ -176,7 +183,7 @@ namespace SamuraiFox.Moa {
 
                  eagle.transform.DOMove(attackPosition, 12.0f);
 
-                //Vector3 vectorToPlayer = (player.transform.position) - eagleContainer.position;
+                //Vector3 vectorToPlayer = (player.transform.position) - eagle.position;
                 //float distanceToPlayer = vectorToPlayer.magnitude;
                 //print("distanceToPlayer: " + distanceToPlayer);
 
@@ -191,10 +198,10 @@ namespace SamuraiFox.Moa {
 
             else if (state == State.BetweenAttacks)
             {
-                if (health <= 0)
-                {
-                    state = State.Dead;
-                }
+             //   if (health <= 0)
+            //    {
+            //        state = State.Dead;
+            //    }
 
                 if (!LookingAtTarget)
                 {
@@ -230,7 +237,18 @@ namespace SamuraiFox.Moa {
 
             else if (state == State.Dead)
             {
+				if (!DeathInvokeCalled) 
+				{
+					OnEagleDeath.Invoke();
+					DeathInvokeCalled = true;
+				}
 
+                animator.Play("Dead");
+
+				eagle.transform.DOMove(new Vector3(eagle.transform.position.x, 0.0f, eagle.transform.position.z), (eagle.transform.position.y / 10.0f)).SetEase(Ease.Linear);
+				eagle.transform.DORotate(new Vector3(transform.rotation.x, transform.rotation.y, -180.0f), (eagle.transform.position.y / 10.0f)).SetEase(Ease.Linear);
+
+                //DORotate(Vector3 to, float duration, RotateMode mode)
             }
         }
 
