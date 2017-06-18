@@ -14,6 +14,7 @@ namespace SamuraiFox.Moa {
         public enum State {
             Arriving,
             Circling,
+            Attacking,
             Dead
         }
 
@@ -35,29 +36,60 @@ namespace SamuraiFox.Moa {
         public UnityEvent OnEagleAttack;
         public UnityEvent OnEagleDeath;
 
+        public GameObject player;
+
         // Attacking
         private Vector3 beginAttackPosition = Vector3.zero;
         private float timer = 0f;
+        private bool HasArrived = false;
+
+        private Animator animator;
 
         // Use this for initialization
         void Start() {
 
             eagle.transform.position = startingPoint.position;
             eagle.transform.localScale = Vector3.zero;
+            
+        }
 
+        void Awake()
+        {
+            animator = gameObject.GetComponent<Animator>();
         }
 
         // Update is called once per frame
-        void Update() {
+        void Update()
+        {
+            if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Fly")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly0")))
+            {
+                if (HasArrived)
+                {
+                    state = State.Circling;
+                    Debug.Log("Set state to circling");
+                }          
+            }
+            else if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack0")))
+            {
+                if (HasArrived)
+                {
+                    state = State.Attacking;
+                    Debug.Log("Set state to attacking");
+                }
+            }
 
-            if (state == State.Arriving) {
+            if (state == State.Arriving)
+            {
 
                 eagle.transform.LookAt(arrivingPointBeforeAttack);
                 return;
 
-            } else if (state == State.Circling) {
+            }
+            else if (state == State.Circling)
+            {
 
-                if (health <= 0) {
+                if (health <= 0)
+                {
 
                     OnEagleDeath.Invoke();
                     state = State.Dead;
@@ -69,17 +101,21 @@ namespace SamuraiFox.Moa {
 
                 timer += Time.deltaTime;
 
-                if (timer > 12) {
+                if (timer > 12)
+                {
 
                     float chance = Random.Range(0.0f, 1.0f);
 
-                    if (chance > 0.5f) {
+                    if (chance > 0.5f)
+                    {
 
                         Debug.Log("Eagle now moving up and back to original Y-position");
                         // Move up and down
                         eagle.transform.DOMoveY(beginAttackPosition.y + 2, 6).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
 
-                    } else {
+                    }
+                    else
+                    {
 
                         Debug.Log("Eagle now moving down and back to original Y-position");
                         // Move down and up
@@ -94,11 +130,28 @@ namespace SamuraiFox.Moa {
 
             }
 
+            else if (state == State.Attacking)
+            {
+                if (health <= 0)
+                {
+                    state = State.Dead;
+                }
+
+                Debug.Log("Move towards player - state is attack");
+                Vector3 vectorToPlayer = (player.transform.position + new Vector3(0, 5, 0)) - transform.position;
+                float distanceToPlayer = vectorToPlayer.magnitude;
+                Vector3 normalised = Vector3.Normalize(vectorToPlayer);
+                Vector3 attackPosition = normalised * (distanceToPlayer - 5.0f);
+                eagle.transform.LookAt(player.transform.position);
+
+                eagle.transform.DOMove(attackPosition, 3.0f);
+            }
         }
 
         public void SpawnEagle() {
 
-			Debug.Log ("Before arrival helper");
+            animator.SetTrigger("EagleSpawnTrigger");
+            Debug.Log ("Before arrival helper");
             StartCoroutine(ArrivalHelper());
 			Debug.Log ("Spawn eagle");
 
@@ -111,18 +164,44 @@ namespace SamuraiFox.Moa {
 
             yield return new WaitForSeconds(3);
 
-            eagle.transform.DOMove(arrivingPointBeforeAttack.position, arrivalDuration).SetEase(Ease.Linear).OnComplete(BeginAttack);
+            eagle.transform.DOMove(arrivingPointBeforeAttack.position, arrivalDuration).SetEase(Ease.Linear).OnComplete(Circle);
             eagle.transform.DOLookAt(arrivingPointBeforeAttack.position, 0.5f).SetEase(Ease.Linear);
+
+            //if (transform.position == arrivingPointBeforeAttack.position)
+            //{
+            //    HasArrived = true;
+            //}
 
         }
 
-        public void BeginAttack() {
+        //public void Attack() {
 
-            Debug.Log("Eagle is now attacking");
+        //    Debug.Log("Eagle is now attacking");
 
+        //    state = State.Attacking;
+
+        //    animator.SetTrigger("Attack");
+
+        //    // Change between (0, 0, 0) and (180, 0, 0) depending on the model's orientation
+        //    // eagle.transform.eulerAngles = new Vector3(0, 180, 0);
+
+        //    beginAttackPosition = eagle.transform.position;
+
+        //    // eagle.transform.DOMoveY(beginAttackPosition.y + 2, 6).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
+
+        //}
+
+        public void Circle()
+        {
             OnEagleAttack.Invoke();
 
+            HasArrived = true;
+
+            Debug.Log("Eagle is now circling");
+
             state = State.Circling;
+
+            animator.SetBool("HasArrivedBool", true);
 
             // Change between (0, 0, 0) and (180, 0, 0) depending on the model's orientation
             // eagle.transform.eulerAngles = new Vector3(0, 180, 0);
