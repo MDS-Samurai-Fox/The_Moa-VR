@@ -7027,6 +7027,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 646390431}
+    - target: {fileID: 114968499873978732, guid: a736487b5e31fa942afbc673ba9a8e99,
+        type: 2}
+      propertyPath: eagleContainer
+      value: 
+      objectReference: {fileID: 1894157725}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a736487b5e31fa942afbc673ba9a8e99, type: 2}
   m_IsPrefabParent: 0

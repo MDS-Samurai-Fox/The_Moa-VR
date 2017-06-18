@@ -15,6 +15,7 @@ namespace SamuraiFox.Moa {
             Arriving,
             Circling,
             Attacking,
+            BetweenAttacks,
             Dead
         }
 
@@ -42,6 +43,12 @@ namespace SamuraiFox.Moa {
         private Vector3 beginAttackPosition = Vector3.zero;
         private float timer = 0f;
         private bool HasArrived = false;
+        private bool HasAttacked = false;
+        private bool LookingAtTarget = false;
+        private bool AttackPositionSet = false;
+        private Vector3 target;
+        private Vector3 attackPosition;
+        public Transform eagleContainer;
 
         private Animator animator;
 
@@ -63,18 +70,25 @@ namespace SamuraiFox.Moa {
         {
             if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Fly")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly0")))
             {
-                if (HasArrived)
+                if ((HasArrived) && (!HasAttacked))
                 {
                     state = State.Circling;
-                    Debug.Log("Set state to circling");
-                }          
+                 //   Debug.Log("Set state to circling");
+                }   
+                else if ((HasArrived) && (HasAttacked))
+                {
+                    state = State.BetweenAttacks;
+                    Debug.Log("Set state to between attacks");
+                    AttackPositionSet = false;
+                }       
             }
             else if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) || (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack0")))
             {
                 if (HasArrived)
                 {
                     state = State.Attacking;
-                    Debug.Log("Set state to attacking");
+                //    Debug.Log("Set state to attacking");
+                    LookingAtTarget = false;
                 }
             }
 
@@ -109,7 +123,7 @@ namespace SamuraiFox.Moa {
                     if (chance > 0.5f)
                     {
 
-                        Debug.Log("Eagle now moving up and back to original Y-position");
+                     //   Debug.Log("Eagle now moving up and back to original Y-position");
                         // Move up and down
                         eagle.transform.DOMoveY(beginAttackPosition.y + 2, 6).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
 
@@ -117,7 +131,7 @@ namespace SamuraiFox.Moa {
                     else
                     {
 
-                        Debug.Log("Eagle now moving down and back to original Y-position");
+                    //    Debug.Log("Eagle now moving down and back to original Y-position");
                         // Move down and up
                         eagle.transform.DOMoveY(beginAttackPosition.y - 3, 6).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutQuad);
 
@@ -138,22 +152,94 @@ namespace SamuraiFox.Moa {
                 }
 
                 Debug.Log("Move towards player - state is attack");
-                Vector3 vectorToPlayer = (player.transform.position + new Vector3(0, 5, 0)) - transform.position;
-                float distanceToPlayer = vectorToPlayer.magnitude;
-                Vector3 normalised = Vector3.Normalize(vectorToPlayer);
-                Vector3 attackPosition = normalised * (distanceToPlayer - 5.0f);
-                eagle.transform.LookAt(player.transform.position);
 
-                eagle.transform.DOMove(attackPosition, 3.0f);
+                if (!AttackPositionSet)
+                {
+                    Vector3 vectorToPlayer = (player.transform.position) - eagleContainer.position;
+                    float distanceToPlayer = vectorToPlayer.magnitude;
+                    Vector3 normalised = Vector3.Normalize(vectorToPlayer);
+
+                    if (distanceToPlayer < 15.0f)
+                        attackPosition = normalised * (distanceToPlayer * -0.35f);
+                    else
+                        attackPosition = normalised * (distanceToPlayer * -0.1f);
+
+                    eagle.transform.LookAt(player.transform.position);
+                    AttackPositionSet = true;
+
+                    //print("Eagle position: " + eagleContainer.position);
+                    //print("Player position " + player.transform.position);
+                    //print("vectorToPlayer: " + vectorToPlayer);
+                    //print("distanceToPlayer: " + distanceToPlayer);
+                    //print("attackPosition " + attackPosition);
+                }
+
+                 eagle.transform.DOMove(attackPosition, 12.0f);
+
+                //Vector3 vectorToPlayer = (player.transform.position) - eagleContainer.position;
+                //float distanceToPlayer = vectorToPlayer.magnitude;
+                //print("distanceToPlayer: " + distanceToPlayer);
+
+                //if (distanceToPlayer > 5.0f)
+                //{
+                //    eagle.transform.DOMove(player.transform.position, 12.0f);
+                //    print("In if statement");
+                //}
+      
+                HasAttacked = true;
+            }
+
+            else if (state == State.BetweenAttacks)
+            {
+                if (health <= 0)
+                {
+                    state = State.Dead;
+                }
+
+                if (!LookingAtTarget)
+                {
+                    float random1 = Random.Range(20.0f, 30.0f);
+                    float random2 = Random.Range(20.0f, 30.0f);
+
+                    if (Random.Range(0.0f, 1.0f) < 0.5f)
+                    {
+                        random1 *= -1;
+                    }
+
+                    if (Random.Range(0.0f, 1.0f) < 0.5f)
+                    {
+                        random2 *= -1;
+                    }
+
+                 //   print("Random 1: " + random1 + "  Random 2: " + random2);
+
+                    target = new Vector3(random1, Random.Range(20.0f, 30.0f), random2);
+
+                    HasAttacked = true;
+               
+                    //var newRot = Quaternion.LookRotation(-target);
+                    //transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 3.0f);
+
+                    eagle.transform.LookAt(target);
+                    LookingAtTarget = true;
+                }
+
+                eagle.transform.DOMove(target, 30.0f);
+           //     eagle.transform.RotateAround(target, Vector3.up, Time.deltaTime * 20.0f);
+            }
+
+            else if (state == State.Dead)
+            {
+
             }
         }
 
         public void SpawnEagle() {
 
             animator.SetTrigger("EagleSpawnTrigger");
-            Debug.Log ("Before arrival helper");
+       //     Debug.Log ("Before arrival helper");
             StartCoroutine(ArrivalHelper());
-			Debug.Log ("Spawn eagle");
+		//	Debug.Log ("Spawn eagle");
 
         }
 
@@ -197,7 +283,7 @@ namespace SamuraiFox.Moa {
 
             HasArrived = true;
 
-            Debug.Log("Eagle is now circling");
+           // Debug.Log("Eagle is now circling");
 
             state = State.Circling;
 
