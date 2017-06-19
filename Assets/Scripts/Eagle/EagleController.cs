@@ -245,8 +245,8 @@ namespace SamuraiFox.Moa {
 
                 animator.Play("Dead");
 
-				eagle.transform.DOMove(new Vector3(eagle.transform.position.x, 0.0f, eagle.transform.position.z), (eagle.transform.position.y / 10.0f)).SetEase(Ease.Linear);
-				eagle.transform.DORotate(new Vector3(transform.rotation.x, transform.rotation.y, -180.0f), (eagle.transform.position.y / 10.0f)).SetEase(Ease.Linear);
+				eagle.transform.DOMove(new Vector3(eagle.transform.position.x, 0.0f, eagle.transform.position.z), (eagle.transform.position.y / 8.0f)).SetEase(Ease.Linear);
+				eagle.transform.DORotate(new Vector3(transform.rotation.x, transform.rotation.y, -180.0f), (eagle.transform.position.y / 8.0f)).SetEase(Ease.Linear);
 
                 //DORotate(Vector3 to, float duration, RotateMode mode)
             }
@@ -260,6 +260,19 @@ namespace SamuraiFox.Moa {
 		//	Debug.Log ("Spawn eagle");
 
         }
+
+        //void OnCollisionEnter(Collider col)
+        //{
+        //    Debug.Log("On collider enter for eagle");
+
+        //    if (col.tag == "projectile")
+        //    {
+        //        TakeDamage();
+        //        Debug.Log("Projectile tag found, lower health");
+        //    }
+
+        //}
+
 
         private IEnumerator ArrivalHelper() {
 
@@ -321,12 +334,11 @@ namespace SamuraiFox.Moa {
         /// touching another rigidbody/collider.
         /// </summary>
         /// <param name="other">The Collision data associated with this collision.</param>
-        void OnCollisionEnter(Collision other) {
 
-        }
 
         public void TakeDamage() {
-
+            Debug.Log("Take damage function");
+            health--;
         }
 
     }

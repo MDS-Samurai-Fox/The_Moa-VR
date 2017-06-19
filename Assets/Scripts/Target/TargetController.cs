@@ -25,28 +25,28 @@ namespace SamuraiFox.Moa {
 
         void Start() {
 
-            currentPosition = transform.localPosition;
+            //currentPosition = transform.localPosition;
 
-            switch (movementType) {
+            //switch (movementType) {
 
-                case MovementType.Rotate:
-                    {
-                        currentPosition = transform.position;
-                        currentPosition.y += 0.5f;
-                    }
-                    break;
-                case MovementType.MoveHorizontally:
-                    {
-                        transform.DOLocalMoveX(currentPosition.x + 1, 2).SetLoops(-1, LoopType.Yoyo);
-                    }
-                    break;
-                case MovementType.MoveVertically:
-                    {
-                        transform.DOLocalMoveY(currentPosition.y + 1, 2).SetLoops(-1, LoopType.Yoyo);
-                    }
-                    break;
+            //    case MovementType.Rotate:
+            //        {
+            //            currentPosition = transform.position;
+            //            currentPosition.y += 0.5f;
+            //        }
+            //        break;
+            //    case MovementType.MoveHorizontally:
+            //        {
+            //            transform.DOLocalMoveX(currentPosition.x + 1, 2).SetLoops(-1, LoopType.Yoyo);
+            //        }
+            //        break;
+            //    case MovementType.MoveVertically:
+            //        {
+            //            transform.DOLocalMoveY(currentPosition.y + 1, 2).SetLoops(-1, LoopType.Yoyo);
+            //        }
+            //        break;
 
-            }
+         //   }
 
             // Debug.Log(name + " - " + currentPosition);
 
@@ -57,15 +57,15 @@ namespace SamuraiFox.Moa {
         /// </summary>
         void Update() {
 
-            if (movementType == MovementType.Rotate) {
+            //if (movementType == MovementType.Rotate) {
 
-                // transform.RotateAround(currentPosition, Vector3.right, 50 * Time.deltaTime);
-                angle += 2 * Time.deltaTime;
+            //    // transform.RotateAround(currentPosition, Vector3.right, 50 * Time.deltaTime);
+            //    angle += 2 * Time.deltaTime;
 
-                var offset = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)) * 0.5f;
-                transform.position = currentPosition + (Vector3) offset;
+            //    var offset = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)) * 0.5f;
+            //    transform.position = currentPosition + (Vector3) offset;
 
-            }
+         //   }
 
         }
 

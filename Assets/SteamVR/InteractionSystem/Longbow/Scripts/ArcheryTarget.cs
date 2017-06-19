@@ -44,16 +44,16 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void OnDamageTaken()
 		{
-			if ( targetEnabled )
-			{
+		//	if ( targetEnabled )
+		//	{
 				onTakeDamage.Invoke();
-				StartCoroutine( this.FallDown() );
+		//		StartCoroutine( this.FallDown() );
 
-				if ( onceOnly )
-				{
-					targetEnabled = false;
-				}
-			}
+		//		if ( onceOnly )
+		//		{
+		//			targetEnabled = false;
+		//		}
+			//}
 		}
 
 
