@@ -83,7 +83,7 @@ namespace SamuraiFox.Moa {
                 else if ((HasArrived) && (HasAttacked))
                 {
                     state = State.BetweenAttacks;
-                    Debug.Log("Set state to between attacks");
+                   // Debug.Log("Set state to between attacks");
                     AttackPositionSet = false;
                 }       
             }
@@ -158,7 +158,7 @@ namespace SamuraiFox.Moa {
             //        state = State.Dead;
             //    }
 
-                Debug.Log("Move towards player - state is attack");
+                //Debug.Log("Move towards player - state is attack");
 
                 if (!AttackPositionSet)
                 {
@@ -171,17 +171,21 @@ namespace SamuraiFox.Moa {
                     else
                         attackPosition = normalised * (distanceToPlayer * -0.1f);
 
+                    attackPosition = player.transform.position + (player.transform.forward) * 1.1f; // + new Vector3(0, 1.5f, 0);
+                    
+
                     eagle.transform.LookAt(player.transform.position);
                     AttackPositionSet = true;
 
-                    //print("Eagle position: " + eagle.position);
-                    //print("Player position " + player.transform.position);
-                    //print("vectorToPlayer: " + vectorToPlayer);
-                    //print("distanceToPlayer: " + distanceToPlayer);
-                    //print("attackPosition " + attackPosition);
+                    Debug.Log("Attack Position Set");
+                    print("Eagle position: " + eagle.transform.position);
+                    print("Player position " + player.transform.position);
+                    print("vectorToPlayer: " + vectorToPlayer);
+                    print("distanceToPlayer: " + distanceToPlayer);
+                    print("attackPosition " + attackPosition);
                 }
 
-                 eagle.transform.DOMove(attackPosition, 12.0f);
+                eagle.transform.DOMove(attackPosition, 12.0f);
 
                 //Vector3 vectorToPlayer = (player.transform.position) - eagle.position;
                 //float distanceToPlayer = vectorToPlayer.magnitude;
@@ -337,7 +341,7 @@ namespace SamuraiFox.Moa {
 
 
         public void TakeDamage() {
-            Debug.Log("Take damage function");
+            //Debug.Log("Take damage function");
             health--;
         }
 

@@ -98,7 +98,7 @@ namespace SamuraiFox.Moa {
 
                     if (hand.currentAttachedObject.GetComponent<BerryInteractable>() == null) {
 
-                        Debug.Log("Instantiating berry");
+                       // Debug.Log("Instantiating berry");
 
                         ControllerButtonHints.HideTextHint(hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);
 

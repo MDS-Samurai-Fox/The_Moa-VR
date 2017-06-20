@@ -88,7 +88,7 @@ namespace SamuraiFox.Moa {
 
             if (other.gameObject.GetComponent<NestBranch>()) {
 
-                Debug.Log("On Collision Enter");
+                //Debug.Log("On Collision Enter");
                 BuildNest();
                 Destroy(other.gameObject);
 
@@ -121,11 +121,11 @@ namespace SamuraiFox.Moa {
         public void BuildNest() {
 
             if (nestIndex > maxNestChildrenCount - 1) {
-                Debug.Log("Nest is already built");
+                //Debug.Log("Nest is already built");
                 return;
             }
 
-            Debug.Log("Adding " + nestPartList[nestIndex].name + " with a scale of " + nestPartScaleList[nestIndex]);
+            //Debug.Log("Adding " + nestPartList[nestIndex].name + " with a scale of " + nestPartScaleList[nestIndex]);
             nestPartList[nestIndex].DOScale(nestPartScaleList[nestIndex], 1);
             nestIndex++;
             ShowNextPartOutline();

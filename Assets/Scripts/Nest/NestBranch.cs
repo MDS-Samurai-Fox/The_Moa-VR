@@ -45,7 +45,7 @@ namespace SamuraiFox.Moa {
                 return;
             }
 
-            Debug.Log("Collision enter with " + other.collider.name);
+            //Debug.Log("Collision enter with " + other.collider.name);
 
             if (canPlayHitSound) {
                 canPlayHitSound = false;
@@ -70,7 +70,7 @@ namespace SamuraiFox.Moa {
         /// <param name="other">The Collision data associated with this collision.</param>
         void OnCollisionExit(Collision other) {
 
-            Debug.Log("Collision Exit");
+           // Debug.Log("Collision Exit");
             canPlayHitSound = true;
 
         }

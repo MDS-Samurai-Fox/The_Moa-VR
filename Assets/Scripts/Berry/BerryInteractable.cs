@@ -29,7 +29,7 @@ namespace SamuraiFox.Moa {
         // Called when this GameObject is detached from the hand
         //-------------------------------------------------
         private void OnDetachedFromHand (Hand hand) {
-            Debug.Log ("OnDetachedFromHand " + name);
+            //Debug.Log ("OnDetachedFromHand " + name);
             ControllerButtonHints.HideTextHint (hand, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
         }
 
