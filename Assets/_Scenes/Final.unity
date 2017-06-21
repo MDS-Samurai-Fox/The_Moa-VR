@@ -5362,6 +5362,11 @@ Prefab:
       propertyPath: OnNestBuild.m_PersistentCalls.m_Calls.Array.data[8].m_Arguments.m_StringArgument
       value: Moa Screech
       objectReference: {fileID: 0}
+    - target: {fileID: 23755639394963576, guid: 48151128e8866ff4eaa62a6296d07fe7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf9ad29eb31ba394db9181fa26109f5d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48151128e8866ff4eaa62a6296d07fe7, type: 2}
   m_IsPrefabParent: 0
@@ -6778,7 +6783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &974049884
 Transform:
   m_ObjectHideFlags: 0
