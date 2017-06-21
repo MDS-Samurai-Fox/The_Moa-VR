@@ -16,10 +16,14 @@ namespace SamuraiFox.Moa {
             Circling,
             Attacking,
             BetweenAttacks,
+            Waiting,
+            Chasing,
             Dead
         }
 
         public State state = State.Arriving;
+
+        public GameObject RunningMoa;
 
         [Header("Transforms")]
         public GameObject eagle;
@@ -32,6 +36,7 @@ namespace SamuraiFox.Moa {
 
         [Header("Variables")]
         public float flyingSpeed = 50;
+        public float chasingSpeed = 40;
         public float health = 1000;
 
         public UnityEvent OnEagleAttack;
@@ -57,7 +62,12 @@ namespace SamuraiFox.Moa {
 
             eagle.transform.position = startingPoint.position;
             eagle.transform.localScale = Vector3.zero;
-            
+
+            if (state == State.Waiting)
+            {
+                SpawnEagle();
+                animator.Play("Chasing");
+            }
         }
 
         void Awake()
@@ -67,8 +77,20 @@ namespace SamuraiFox.Moa {
 
         // Update is called once per frame
         void Update()
-        {           
-			if (health <= 0)
+        {
+            if (state == State.Waiting)
+            {          
+                return;
+            }
+
+            if (state == State.Chasing)
+            {
+                  eagle.transform.DOMove(new Vector3(22.87f, -1.69f, -40.31f), chasingSpeed).SetEase(Ease.Linear).OnComplete(ResetChasing);
+             //   eagle.transform.DOMove(RunningMoa.transform.position, 2).SetEase(Ease.Linear);//.OnComplete(ResetChasing);
+                return;
+            }
+
+            if (health <= 0)
 			{
 				state = State.Dead;
 			}
@@ -171,7 +193,7 @@ namespace SamuraiFox.Moa {
                     else
                         attackPosition = normalised * (distanceToPlayer * -0.1f);
 
-                    attackPosition = player.transform.position + (player.transform.forward) * 1.1f; // + new Vector3(0, 1.5f, 0);
+              //      attackPosition = player.transform.position + (player.transform.forward) * 1.1f; // + new Vector3(0, 1.5f, 0);
                     
 
                     eagle.transform.LookAt(player.transform.position);
@@ -277,6 +299,17 @@ namespace SamuraiFox.Moa {
 
         //}
 
+
+        public void StartChasing()
+        {
+            state = State.Chasing;
+        }
+
+        public void ResetChasing()
+        {
+            state = State.Waiting;
+            transform.position = new Vector3(-18.49221f, -0.06828594f, -11.07451f);
+        }
 
         private IEnumerator ArrivalHelper() {
 
