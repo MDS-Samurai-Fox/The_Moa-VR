@@ -24,7 +24,8 @@ namespace SamuraiFox.Moa {
 
             if (canPlayFootstep) {
                 canPlayFootstep = false;
-                AudioManager.Instance.Play("Footstep");
+                //  AudioManager.Instance.Play("Footstep");
+                gameObject.GetComponent<AudioSource>().Play();
             }
 
 			Debug.Log ("Foot trigger enter");
