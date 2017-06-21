@@ -193,8 +193,9 @@ namespace SamuraiFox.Moa {
                     else
                         attackPosition = normalised * (distanceToPlayer * -0.1f);
 
-              //      attackPosition = player.transform.position + (player.transform.forward) * 1.1f; // + new Vector3(0, 1.5f, 0);
-                    
+                    //attackPosition = player.transform.position + (player.transform.forward) * 1.2f; // + new Vector3(0, 1.5f, 0);
+                    attackPosition = player.transform.position + new Vector3(0, 1, 0); // + new Vector3(0, 1.5f, 0);
+
 
                     eagle.transform.LookAt(player.transform.position);
                     AttackPositionSet = true;
@@ -308,7 +309,7 @@ namespace SamuraiFox.Moa {
         public void ResetChasing()
         {
             state = State.Waiting;
-            transform.position = new Vector3(-18.49221f, -0.06828594f, -11.07451f);
+            transform.position = new Vector3(-63.09f, 0.74f, 7.73f);
         }
 
         private IEnumerator ArrivalHelper() {
